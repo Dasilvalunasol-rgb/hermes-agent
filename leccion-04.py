@@ -35,6 +35,7 @@ mercados = [
     ["Bitcoin sube",   0.02],
     ["Final Champions", 0.15],
     ["Lluvia mañana",  0.01],
+    ["¿Lloverá en Eivissa?", 0.08],
 ]
 
 minimo_para_apostar = 0.05  # el mínimo del Cerebro (5%)
