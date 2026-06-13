@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battlecard competitiva — Blovvn · Pañuelos de lujo · Ibiza</title>
+<style>
+  :root{
+    --bg-primary:#0a0d14; --bg-elevated:#0f131c; --bg-surface:#161b28; --bg-hover:#1e2536;
+    --text-primary:#ffffff; --text-secondary:rgba(255,255,255,.72); --text-muted:rgba(255,255,255,.48);
+    --accent:#e0117f; --accent-soft:rgba(224,17,127,.14); --accent-border:rgba(224,17,127,.4);
+    --you-win:#10b981; --they-win:#ef4444; --tie:#f59e0b;
+    --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg-primary);color:var(--text-primary);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+  a{color:var(--accent)}
+  header{padding:34px 28px 22px;border-bottom:1px solid var(--border);background:var(--bg-elevated)}
+  .brandrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .seal{width:46px;height:46px;border-radius:12px;background:var(--accent);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;
+    line-height:1;flex-direction:column;color:#fff;letter-spacing:.5px}
+  .seal small{font-weight:400;font-size:8px;opacity:.85;margin-top:2px}
+  header h1{font-size:24px;font-weight:600;letter-spacing:-.3px}
+  .sub{color:var(--text-secondary);font-size:13.5px;margin-top:8px;max-width:760px}
+  .meta{color:var(--text-muted);font-size:12px;margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}
+  .meta b{color:var(--text-secondary);font-weight:500}
+  nav.tabs{display:flex;gap:6px;padding:14px 20px;overflow-x:auto;border-bottom:1px solid var(--border);
+    position:sticky;top:0;background:rgba(10,13,20,.92);backdrop-filter:blur(8px);z-index:20}
+  .tab{background:var(--bg-surface);color:var(--text-secondary);border:1px solid var(--border);
+    padding:9px 15px;border-radius:9px;font-size:13px;cursor:pointer;white-space:nowrap;
+    transition:all .16s;font-weight:500}
+  .tab:hover{background:var(--bg-hover);color:var(--text-primary)}
+  .tab.active{background:var(--accent-soft);color:#fff;border-color:var(--accent-border)}
+  .tab.us{margin-left:auto}
+  main{max-width:1080px;margin:0 auto;padding:26px 20px}
+  .tab-content{display:none;animation:fade .25s ease}
+  .tab-content.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2{font-size:18px;font-weight:600;margin:8px 0 14px;letter-spacing:-.2px}
+  h3{font-size:15px;font-weight:600;margin:20px 0 10px;color:var(--text-primary)}
+  .matrix-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--bg-elevated)}
+  table.matrix{width:100%;border-collapse:collapse;font-size:12.5px;min-width:720px}
+  table.matrix th,table.matrix td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  table.matrix thead th{position:sticky;top:0;background:var(--bg-surface);font-weight:600;color:var(--text-primary);font-size:12px}
+  table.matrix thead th.uscol{color:#fff;background:var(--accent-soft)}
+  table.matrix tbody th{font-weight:500;color:var(--text-muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+  table.matrix td.uscol{background:rgba(224,17,127,.06);color:#fff}
+  table.matrix tr:last-child td,table.matrix tr:last-child th{border-bottom:none}
+  .win-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:8px}
+  .wl-card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .wl-card h4{font-size:14px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .wl-card .row{font-size:12.5px;margin:6px 0;color:var(--text-secondary)}
+  .pill{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.3px;text-transform:uppercase}
+  .pill.win{background:rgba(16,185,129,.16);color:#34d399}
+  .pill.lose{background:rgba(239,68,68,.16);color:#f87171}
+  .pill.tie{background:rgba(245,158,11,.16);color:#fbbf24}
+  .card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:18px}
+  .card.accent{border-color:var(--accent-border);background:linear-gradient(180deg,rgba(224,17,127,.06),transparent 60%)}
+  .profile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:6px}
+  .pf{background:var(--bg-surface);border:1px solid var(--border);border-radius:9px;padding:11px 13px}
+  .pf .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px}
+  .pf .v{font-size:13px;color:var(--text-primary);font-weight:500}
+  .lead{color:var(--text-secondary);font-size:13.5px;margin:4px 0 6px}
+  ul.clean{list-style:none;margin:6px 0}
+  ul.clean li{position:relative;padding-left:18px;font-size:13px;color:var(--text-secondary);margin:8px 0}
+  ul.clean li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  ul.win li::before{background:var(--you-win)}
+  ul.lose li::before{background:var(--they-win)}
+  ul.clean li b{color:var(--text-primary);font-weight:600}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.two{grid-template-columns:1fr}}
+  .block{background:var(--bg-surface);border:1px solid var(--border);border-radius:11px;padding:15px}
+  .block.win{border-left:3px solid var(--you-win);border-radius:0 11px 11px 0}
+  .block.lose{border-left:3px solid var(--they-win);border-radius:0 11px 11px 0}
+  .block h4{font-size:13px;font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px}
+  .block.win h4{color:#34d399}.block.lose h4{color:#f87171}
+  .tt{margin:10px 0;padding:12px 14px;background:var(--bg-surface);border:1px solid var(--border);border-radius:10px}
+  .tt .scen{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:600;margin-bottom:5px}
+  .tt .say{font-size:13px;color:var(--text-primary);font-style:italic}
+  .obj{margin:9px 0;padding-left:14px;border-left:2px solid var(--border)}
+  .obj .q{font-size:13px;color:#fbbf24;font-weight:500;margin-bottom:3px}
+  .obj .a{font-size:12.5px;color:var(--text-secondary)}
+  .mine{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--text-secondary);margin:9px 0}
+  .mine::before{content:"?";flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent-soft);
+    color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .tag{display:inline-block;font-size:10.5px;color:var(--text-muted);border:1px solid var(--border);
+    border-radius:6px;padding:2px 8px;margin:0 5px 5px 0}
+  footer{max-width:1080px;margin:10px auto 0;padding:18px 20px;color:var(--text-muted);font-size:11.5px;border-top:1px solid var(--border)}
+  .disc{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.25);border-radius:10px;
+    padding:12px 14px;font-size:12px;color:var(--text-secondary);margin-bottom:18px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brandrow">
+    <div class="seal">B<small>blovvn</small></div>
+    <div>
+      <h1>Battlecard competitiva — Blovvn</h1>
+    </div>
+  </div>
+  <p class="sub">Marca europea premium de papel higiénico, DTC en EUR · Ibiza 2026. Modelo de dos capas: el rollo simple y económico, todo el lujo en el envoltorio (banda, funda, tarjeta, caja). Personalización hasta cantidad uno, suscripción −15% y línea B2B co-marcada para hostelería.</p>
+  <div class="meta">
+    <span><b>Generado:</b> 9 jun 2026</span>
+    <span><b>Competidores:</b> Renova · Who Gives A Crap · Bumboo · The Cheeky Panda · Bamboi</span>
+    <span><b>Fuente:</b> investigación web pública</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-tab="matrix">Matriz comparativa</button>
+  <button class="tab" data-tab="renova">Renova</button>
+  <button class="tab" data-tab="wgac">Who Gives A Crap</button>
+  <button class="tab" data-tab="bumboo">Bumboo</button>
+  <button class="tab" data-tab="panda">The Cheeky Panda</button>
+  <button class="tab" data-tab="bamboi">Bamboi</button>
+  <button class="tab us" data-tab="us">★ Blovvn (nosotros)</button>
+</nav>
+
+<main>
+  <!-- ============ MATRIZ ============ -->
+  <section id="matrix" class="tab-content active">
+    <div class="disc">Lectura honesta: en <b>precio por hoja</b>, las marcas eco DTC ganan a Blovvn con holgura — están en ~0,70–1,20 €/rollo y Blovvn en 6–14 €/rollo. Blovvn no compite en valor por hoja: compite en <b>diseño, personalización, regalo, marca y hostelería</b>. Toda la conversación de venta debe reencuadrar de "precio del rollo" a "experiencia y objeto de marca".</div>
+
+    <h2>Comparativa cara a cara</h2>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Dimensión</th>
+            <th class="uscol">Blovvn</th>
+            <th>Renova</th>
+            <th>Who Gives A Crap</th>
+            <th>Bumboo</th>
+            <th>The Cheeky Panda</th>
+            <th>Bamboi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>Origen</th><td class="uscol">Ibiza / España</td><td>Portugal</td><td>Australia (envía a UE desde NL)</td><td>Reino Unido</td><td>Reino Unido</td><td>España</td></tr>
+          <tr><th>Posición</th><td class="uscol">Lujo de diseño · objeto</td><td>Lujo de color · icónica</td><td>Eco con propósito · masivo</td><td>Bambú lujo · eco</td><td>Bambú eco · retail</td><td>Eco asequible · local</td></tr>
+          <tr><th>Material</th><td class="uscol">3 niveles: reciclado / FSC-PEFC / bambú</td><td>Celulosa premium teñida</td><td>Bambú y reciclado</td><td>100% bambú</td><td>100% bambú</td><td>100% bambú FSC</td></tr>
+          <tr><th>Personalización</th><td class="uscol">Monograma, modo regalo, sello de cera — hasta 1 ud.</td><td>Color/aroma de catálogo</td><td>Envoltorios divertidos (no personal)</td><td>Envuelto/desnudo</td><td>Ninguna</td><td>Ninguna</td></tr>
+          <tr><th>Precio aprox./rollo</th><td class="uscol">6–14 €</td><td>~1,5–3 € (pack); regalo ~5 €</td><td>~0,9–1,2 €</td><td>~0,3 €/100 hojas</td><td>~0,9–1 €</td><td>~0,7–1 €</td></tr>
+          <tr><th>Canal</th><td class="uscol">Shopify headless DTC + B2B</td><td>Retail global + DTC</td><td>DTC + algo retail</td><td>DTC + retail eco</td><td>Retail (super) + DTC</td><td>DTC local</td></tr>
+          <tr><th>Suscripción</th><td class="uscol">Sí, −15% por defecto</td><td>No (retail)</td><td>Sí, núcleo del modelo</td><td>Sí, −5%</td><td>Sí, −30% 1ª entrega</td><td>Sí (semana/mes/año)</td></tr>
+          <tr><th>B2B / hostelería</th><td class="uscol">Sí — co-marcado, alta margen</td><td>Sí (HORECA color)</td><td>Limitado</td><td>Limitado</td><td>Sí (B2B office)</td><td>No destacado</td></tr>
+          <tr><th>Historia de marca</th><td class="uscol">Sello magenta · Ibiza · app · dispensador</td><td>"The Sexiest Paper on Earth"</td><td>50% beneficio a saneamiento</td><td>B Corp · plástico cero</td><td>B Corp · gama amplia</td><td>Sencilla · precio</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="margin-top:26px">Guía rápida de victoria/derrota</h2>
+    <div class="win-grid">
+      <div class="wl-card">
+        <h4>Renova <span class="pill tie">empate</span></h4>
+        <div class="row"><b style="color:#34d399">Ganas si:</b> el cliente quiere personalización real (monograma/regalo), paleta sobria de diseño o programa de hostelería co-marcado.</div>
+        <div class="row"><b style="color:#f87171">Pierdes si:</b> solo quiere "el papel negro icónico" ya disponible en tienda a precio retail.</div>
+      </div>
+      <div class="wl-card">
+        <h4>Who Gives A Crap <span class="pill lose">difícil en precio</span></h4>
+        <div class="row"><b style="color:#34d399">Ganas si:</b> busca un objeto de regalo, marca de diseño o solución para hotel/club, no un consumible.</div>
+        <div class="row"><b style="color:#f87171">Pierdes si:</b> la decisión es coste por hoja + propósito social. Ahí WGAC es imbatible.</div>
+      </div>
+      <div class="wl-card">
+        <h4>Bumboo <span class="pill win">favorable</span></h4>
+        <div class="row"><b style="color:#34d399">Ganas si:</b> quiere lujo, diseño y personalización, no solo "bambú correcto".</div>
+        <div class="row"><b style="color:#f87171">Pierdes si:</b> solo le importa bambú barato, rollo extra-largo y B Corp.</div>
+      </div>
+      <div class="wl-card">
+        <h4>The Cheeky Panda <span class="pill win">favorable</span></h4>
+        <div class="row"><b style="color:#34d399">Ganas si:</b> valora diseño, regalo o una experiencia premium frente a un producto de súper.</div>
+        <div class="row"><b style="color:#f87171">Pierdes si:</b> compra por disponibilidad en retail y gama amplia (toallas, pañuelos).</div>
+      </div>
+      <div class="wl-card">
+        <h4>Bamboi <span class="pill win">favorable</span></h4>
+        <div class="row"><b style="color:#34d399">Ganas si:</b> el cliente español quiere algo con marca, diseño y opción de regalo/hostelería.</div>
+        <div class="row"><b style="color:#f87171">Pierdes si:</b> busca la suscripción de bambú más barata con envío local gratis.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RENOVA ============ -->
+  <section id="renova" class="tab-content">
+    <div class="card accent">
+      <h2>Renova — el lujo de color, icónico</h2>
+      <p class="lead">El referente histórico del papel higiénico de lujo: el negro y los colores intensos, "The Sexiest Paper on Earth". Compite en el mismo espacio aspiracional que Blovvn, pero desde catálogo y retail, no desde la personalización.</p>
+      <div class="profile-grid">
+        <div class="pf"><div class="k">Origen</div><div class="v">Portugal</div></div>
+        <div class="pf"><div class="k">Posición</div><div class="v">Lujo de color</div></div>
+        <div class="pf"><div class="k">Canal</div><div class="v">Retail global + DTC</div></div>
+        <div class="pf"><div class="k">Producto</div><div class="v">Color/negro, perfumado, 3 capas</div></div>
+        <div class="pf"><div class="k">Precio</div><div class="v">~1,5–3 €/rollo; regalo ~5 €</div></div>
+        <div class="pf"><div class="k">Mercado</div><div class="v">Consumo + HORECA + regalo</div></div>
+      </div>
+    </div>
+
+    <h3>Qué venden y cómo se posicionan</h3>
+    <ul class="clean">
+      <li>Papel de color y negro perfumado vendido en packs y <b>cajas regalo</b>, presente en tiendas de diseño y grandes superficies de todo el mundo.</li>
+      <li>Marca provocadora y reconocible: décadas de equity alrededor del "papel negro".</li>
+    </ul>
+
+    <div class="two">
+      <div class="block lose"><h4>Donde ganan ellos</h4>
+        <ul class="clean lose">
+          <li><b>Reconocimiento instantáneo:</b> el negro Renova es un icono cultural.</li>
+          <li><b>Distribución:</b> disponible ya, en retail físico y marketplaces.</li>
+          <li><b>Precio:</b> a 1,5–3 €/rollo, mucho más accesible que Blovvn.</li>
+        </ul>
+        <p class="lead" style="margin-top:8px"><b>Cómo manejarlo:</b> no compitas con su precio ni su distribución. Mueve la conversación a personalización y paleta sobria.</p>
+      </div>
+      <div class="block win"><h4>Donde ganas tú</h4>
+        <ul class="clean win">
+          <li><b>Personalización a 1 ud.:</b> monograma, modo regalo y sello de cera por pedido — Renova no lo hace.</li>
+          <li><b>Paleta de diseño sobria</b> (Natural, Piedra, Salvia, Arcilla, Carbón) vs colores chillones perfumados.</li>
+          <li><b>Tintes seguros para la piel y conformes con la etiqueta ecológica UE</b>, frente a la percepción "químico/perfumado".</li>
+          <li><b>Mundo de marca Ibiza</b> + dispensador, app y sello magenta: objeto, no consumible.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Talk tracks</h3>
+    <div class="tt"><div class="scen">Mención temprana</div><div class="say">"Renova abrió la categoría del papel de lujo, y les debemos eso. Nosotros llevamos la idea un paso más allá: una paleta de interiorismo y la posibilidad de poner tus iniciales o un sello de cera — pieza a pieza."</div></div>
+    <div class="tt"><div class="scen">Desplazamiento (ya usan Renova)</div><div class="say">"Si ya disfrutas del color en el baño, el salto natural es el monograma y el modo regalo. Mismo gesto de lujo, pero tuyo."</div></div>
+    <div class="tt"><div class="scen">Añadido tarde a la evaluación</div><div class="say">"Para hostelería, Renova da color; nosotros damos tu marca impresa en la banda y la caja, sin complejidad de SKU."</div></div>
+
+    <h3>Objeciones</h3>
+    <div class="obj"><div class="q">"Renova ya tiene el papel negro de toda la vida."</div><div class="a">Exacto — y por eso es genérico. Nadie reconoce que es tuyo. Blovvn convierte el papel en marca propia con monograma y sello.</div></div>
+    <div class="obj"><div class="q">"Renova es más barato."</div><div class="a">Para uso diario, sí. Pero Blovvn no es un consumible: es objeto de regalo y herramienta de marca para hoteles y clubs. El precio vive en el envoltorio, no en el rollo.</div></div>
+
+    <h3>Preguntas mina</h3>
+    <div class="mine">¿Podrías poner las iniciales del huésped o el logo de tu hotel en el papel para una suite o un evento?</div>
+    <div class="mine">¿La paleta de colores encaja con un interiorismo sobrio o se siente más "novedad perfumada"?</div>
+  </section>
+
+  <!-- ============ WGAC ============ -->
+  <section id="wgac" class="tab-content">
+    <div class="card accent">
+      <h2>Who Gives A Crap — eco con propósito, escala global</h2>
+      <p class="lead">La marca que definió el papel higiénico DTC premium-eco: suscripción, envoltorios alegres y una historia de impacto demoledora (50% del beneficio a saneamiento). Es el rival más fuerte en confianza y valor — pero juega en otra liga de precio y propósito, no de lujo.</p>
+      <div class="profile-grid">
+        <div class="pf"><div class="k">Origen</div><div class="v">Australia · envía a UE desde NL</div></div>
+        <div class="pf"><div class="k">Posición</div><div class="v">Eco + impacto social</div></div>
+        <div class="pf"><div class="k">Modelo</div><div class="v">Suscripción DTC</div></div>
+        <div class="pf"><div class="k">Producto</div><div class="v">Bambú y reciclado, rollo doble</div></div>
+        <div class="pf"><div class="k">Precio</div><div class="v">~0,9–1,2 €/rollo (doble largo)</div></div>
+        <div class="pf"><div class="k">Impacto</div><div class="v">50% beneficio donado</div></div>
+      </div>
+    </div>
+
+    <h3>Movimientos recientes</h3>
+    <ul class="clean">
+      <li>Refuerzo del mensaje de valor: rollos de <b>doble longitud</b> para argumentar coste por hoja a la par del súper.</li>
+      <li>Promos de captación agresivas (−20% primera compra, envío gratis en UE sobre ~20 €).</li>
+    </ul>
+
+    <div class="two">
+      <div class="block lose"><h4>Donde ganan ellos</h4>
+        <ul class="clean lose">
+          <li><b>Valor:</b> coste por hoja imbatible con rollo doble.</li>
+          <li><b>Propósito:</b> 50% del beneficio a saneamiento — historia muy querida.</li>
+          <li><b>Confianza y ops:</b> suscripción probada a escala, reseñas excelentes.</li>
+        </ul>
+        <p class="lead" style="margin-top:8px"><b>Cómo manejarlo:</b> reconoce su liderazgo eco. No intentes ganar en precio ni en donación; gana en diseño, regalo y B2B premium.</p>
+      </div>
+      <div class="block win"><h4>Donde ganas tú</h4>
+        <ul class="clean win">
+          <li><b>Lujo y objeto:</b> Blovvn es regalo y pieza de marca, no un consumible alegre.</li>
+          <li><b>Personalización 1:1</b> (monograma, sello de cera) — WGAC no personaliza.</li>
+          <li><b>Tres niveles de material</b> bajo una sola marca, incluido reciclado y FSC, no solo eco.</li>
+          <li><b>Hostelería co-marcada</b> para hoteles/restaurantes/clubs de Ibiza.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Talk tracks</h3>
+    <div class="tt"><div class="scen">Mención temprana</div><div class="say">"WGAC es fantástico si buscas el papel eco diario más responsable. Nosotros resolvemos otra cosa: el momento regalo y la marca del local — papel como objeto, con tus iniciales."</div></div>
+    <div class="tt"><div class="scen">Desplazamiento (ya suscritos)</div><div class="say">"Quédate con WGAC para el día a día si quieres. Blovvn es para el aseo de invitados, la suite del hotel o el regalo — donde el envoltorio importa tanto como el papel."</div></div>
+    <div class="tt"><div class="scen">Añadido tarde</div><div class="say">"Si la decisión es para un hotel, WGAC no co-marca; nosotros imprimimos tu marca en banda y caja sin sumar SKU."</div></div>
+
+    <h3>Objeciones</h3>
+    <div class="obj"><div class="q">"WGAC dona el 50% — vosotros no."</div><div class="a">Su impacto es admirable. El nuestro es de producto responsable (FSC-PEFC, bambú, tintes UE Ecolabel) con un caso de uso distinto: lujo y regalo. No son excluyentes; muchos clientes tienen ambos.</div></div>
+    <div class="obj"><div class="q">"Sale mucho más barato por hoja."</div><div class="a">Cierto para el consumo diario. Blovvn no se compra por hoja: se compra por el envoltorio, el monograma y la experiencia. Distinta intención de compra.</div></div>
+
+    <h3>Preguntas mina</h3>
+    <div class="mine">Para un regalo o el baño de invitados, ¿el envoltorio kraft con chiste comunica lo que quieres transmitir?</div>
+    <div class="mine">¿Puedes poner el nombre de tu hotel o las iniciales del cliente en el producto?</div>
+  </section>
+
+  <!-- ============ BUMBOO ============ -->
+  <section id="bumboo" class="tab-content">
+    <div class="card accent">
+      <h2>Bumboo — bambú de lujo, DTC limpio</h2>
+      <p class="lead">El competidor más cercano en discurso "lujo + bambú + suscripción". B Corp, plástico cero, rollos extra-largos y precio por hoja muy competitivo. Su "lujo" es funcional/eco; el de Blovvn es de diseño y personalización.</p>
+      <div class="profile-grid">
+        <div class="pf"><div class="k">Origen</div><div class="v">Reino Unido</div></div>
+        <div class="pf"><div class="k">Posición</div><div class="v">Lujo bambú eco</div></div>
+        <div class="pf"><div class="k">Modelo</div><div class="v">Suscripción DTC −5%</div></div>
+        <div class="pf"><div class="k">Producto</div><div class="v">100% bambú, rollo extra-largo</div></div>
+        <div class="pf"><div class="k">Precio</div><div class="v">~0,30 €/100 hojas</div></div>
+        <div class="pf"><div class="k">Sellos</div><div class="v">B Corp · PFAS-free · sin plástico</div></div>
+      </div>
+    </div>
+
+    <h3>Qué venden y cómo se posicionan</h3>
+    <ul class="clean">
+      <li>Bambú "premium" con opciones envuelto / desnudo / sin blanquear; trial barato (~£3,50) para captar suscripción.</li>
+      <li>Argumento eco fuerte: sin PFAS, sin formaldehído, sin BPA, sin agentes de desentintado.</li>
+    </ul>
+
+    <div class="two">
+      <div class="block lose"><h4>Donde ganan ellos</h4>
+        <ul class="clean lose">
+          <li><b>Precio por hoja</b> y rollo extra-largo: valor real.</li>
+          <li><b>Credenciales B Corp</b> y química limpia bien comunicadas.</li>
+          <li><b>Ops DTC pulidas</b>, trial de entrada de bajo riesgo.</li>
+        </ul>
+        <p class="lead" style="margin-top:8px"><b>Cómo manejarlo:</b> no discutas su pureza eco. Lleva el foco a diseño, regalo y B2B.</p>
+      </div>
+      <div class="block win"><h4>Donde ganas tú</h4>
+        <ul class="clean win">
+          <li><b>Diseño y paleta</b> de interiorismo frente a packaging eco genérico.</li>
+          <li><b>Personalización 1:1</b> y modo regalo — Bumboo no lo ofrece.</li>
+          <li><b>Tres niveles</b> (reciclado/FSC/bambú): cubres más historias de material, no solo bambú.</li>
+          <li><b>Hostelería co-marcada</b> y mundo de marca Ibiza.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Talk tracks</h3>
+    <div class="tt"><div class="scen">Mención temprana</div><div class="say">"Bumboo hace muy bien el bambú eco. Nosotros añadimos la capa que les falta: diseño de interiorismo, tu monograma y un programa para hoteles."</div></div>
+    <div class="tt"><div class="scen">Desplazamiento</div><div class="say">"Nuestro nivel Ultra es bambú igual que Bumboo — la diferencia es la banda, la caja y poder hacerlo tuyo o de regalo."</div></div>
+    <div class="tt"><div class="scen">Añadido tarde</div><div class="say">"Si es para un local, Bumboo no co-marca. Blovvn imprime tu marca sin complejidad de SKU."</div></div>
+
+    <h3>Objeciones</h3>
+    <div class="obj"><div class="q">"Bumboo es B Corp y más barato."</div><div class="a">Genial para el consumo eco diario. Blovvn es producto de regalo y marca: el valor está en el envoltorio y la personalización, no en el coste por hoja.</div></div>
+    <div class="obj"><div class="q">"Su rollo dura más."</div><div class="a">Para el día a día, perfecto. Para el baño de invitados, la suite o el regalo, lo que pesa es cómo se ve y si lleva tu sello.</div></div>
+
+    <h3>Preguntas mina</h3>
+    <div class="mine">¿Su packaging encaja en un interior de diseño o se ve "producto eco de armario"?</div>
+    <div class="mine">¿Puedes personalizarlo para un regalo o para tu marca?</div>
+  </section>
+
+  <!-- ============ CHEEKY PANDA ============ -->
+  <section id="panda" class="tab-content">
+    <div class="card accent">
+      <h2>The Cheeky Panda — bambú eco, ubicuo en retail</h2>
+      <p class="lead">Marca de bambú amplia y omnipresente: súper, Amazon, DTC y B2B oficina, con gama extensa (papel, toallas, pañuelos, toallitas). Gana por disponibilidad y precio, no por lujo ni personalización.</p>
+      <div class="profile-grid">
+        <div class="pf"><div class="k">Origen</div><div class="v">Reino Unido</div></div>
+        <div class="pf"><div class="k">Posición</div><div class="v">Bambú eco masivo</div></div>
+        <div class="pf"><div class="k">Canal</div><div class="v">Retail + Amazon + DTC + B2B</div></div>
+        <div class="pf"><div class="k">Producto</div><div class="v">Bambú 3 capas, gama amplia</div></div>
+        <div class="pf"><div class="k">Precio</div><div class="v">~0,9–1 €/rollo (−30% 1ª subs.)</div></div>
+        <div class="pf"><div class="k">Nota</div><div class="v">Rollos pequeños (~200 hojas)</div></div>
+      </div>
+    </div>
+
+    <h3>Qué venden y cómo se posicionan</h3>
+    <ul class="clean">
+      <li>Bambú sin aromas ni lociones; FSC; foco en disponibilidad y en una <b>gama completa</b> de productos de papel.</li>
+      <li>Reseñas: buena percepción de calidad y servicio; críticas a <b>rollos pequeños</b> y suavidad mejorable.</li>
+    </ul>
+
+    <div class="two">
+      <div class="block lose"><h4>Donde ganan ellos</h4>
+        <ul class="clean lose">
+          <li><b>Ubicuidad:</b> lo encuentras en el súper hoy mismo.</li>
+          <li><b>Gama amplia:</b> toallas, pañuelos, toallitas — surtido completo.</li>
+          <li><b>Precio</b> y promo de suscripción potente.</li>
+        </ul>
+        <p class="lead" style="margin-top:8px"><b>Cómo manejarlo:</b> es un producto de súper. Reencuadra hacia experiencia, diseño y regalo.</p>
+      </div>
+      <div class="block win"><h4>Donde ganas tú</h4>
+        <ul class="clean win">
+          <li><b>Lujo y diseño</b> vs estética de retail eco.</li>
+          <li><b>Personalización y regalo</b> — Cheeky Panda no personaliza.</li>
+          <li><b>Calidad percibida:</b> niveles Firma/Ultra frente a "rollos pequeños".</li>
+          <li><b>Programa de hostelería</b> co-marcado de alto margen.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Talk tracks</h3>
+    <div class="tt"><div class="scen">Mención temprana</div><div class="say">"Cheeky Panda es el bambú del súper — práctico y barato. Blovvn es otra categoría: el papel como objeto de diseño y regalo, con tu sello."</div></div>
+    <div class="tt"><div class="scen">Desplazamiento</div><div class="say">"Para el almacén, Cheeky Panda. Para el baño de invitados o el regalo, querrás algo que se vea y se sienta premium."</div></div>
+    <div class="tt"><div class="scen">Añadido tarde</div><div class="say">"En hostelería ofrecen volumen; nosotros ofrecemos tu marca impresa y una experiencia de huésped."</div></div>
+
+    <h3>Objeciones</h3>
+    <div class="obj"><div class="q">"Lo compro en el súper y es más barato."</div><div class="a">Perfecto para el día a día. Blovvn no es un reemplazo del súper: es el papel para cuando quieres que el detalle hable de ti o de tu local.</div></div>
+    <div class="obj"><div class="q">"Ya tienen toallas y pañuelos también."</div><div class="a">Surtido amplio, sí. Nosotros vamos a profundidad en una experiencia premium y personalizable, no a la cesta de la compra.</div></div>
+
+    <h3>Preguntas mina</h3>
+    <div class="mine">¿El tamaño de rollo y la suavidad están a la altura de un espacio premium?</div>
+    <div class="mine">¿Puedes diferenciar tu hotel con su producto, o lo tiene ya todo el mundo?</div>
+  </section>
+
+  <!-- ============ BAMBOI ============ -->
+  <section id="bamboi" class="tab-content">
+    <div class="card accent">
+      <h2>Bamboi — el bambú DTC español</h2>
+      <p class="lead">El competidor local directo en España: suscripción de bambú FSC con envío gratis a casa y precio accesible. Fuerte en mercado doméstico y SEO local; débil en marca, diseño y personalización — justo donde Blovvn brilla.</p>
+      <div class="profile-grid">
+        <div class="pf"><div class="k">Origen</div><div class="v">España</div></div>
+        <div class="pf"><div class="k">Posición</div><div class="v">Eco asequible local</div></div>
+        <div class="pf"><div class="k">Modelo</div><div class="v">Suscripción (semana/mes/año)</div></div>
+        <div class="pf"><div class="k">Producto</div><div class="v">100% bambú FSC, sin tintes</div></div>
+        <div class="pf"><div class="k">Precio</div><div class="v">~0,7–1 €/rollo</div></div>
+        <div class="pf"><div class="k">Ventaja</div><div class="v">Envío gratis · español nativo</div></div>
+      </div>
+    </div>
+
+    <h3>Qué venden y cómo se posicionan</h3>
+    <ul class="clean">
+      <li>Bambú FSC ultrasuave, sin químicos ni tintes, con suscripción flexible y entrega gratuita en España.</li>
+      <li>Propuesta sencilla: ecológico, económico y fiable — sin capa de marca ni lujo.</li>
+    </ul>
+
+    <div class="two">
+      <div class="block lose"><h4>Donde ganan ellos</h4>
+        <ul class="clean lose">
+          <li><b>Local:</b> español nativo, envío gratis, logística doméstica.</li>
+          <li><b>Precio</b> de suscripción bajo.</li>
+          <li><b>Sencillez</b> de propuesta eco para el hogar.</li>
+        </ul>
+        <p class="lead" style="margin-top:8px"><b>Cómo manejarlo:</b> comparte su ventaja local (también eres español/Ibiza) y sube por diseño, regalo y hostelería.</p>
+      </div>
+      <div class="block win"><h4>Donde ganas tú</h4>
+        <ul class="clean win">
+          <li><b>Marca y diseño:</b> mundo Blovvn, sello magenta, paleta de interiorismo.</li>
+          <li><b>Personalización y regalo</b> 1:1 — Bamboi no lo ofrece.</li>
+          <li><b>Tres niveles</b> de material, no solo bambú básico.</li>
+          <li><b>B2B hostelería en Ibiza</b> co-marcado — mercado natural que Bamboi no trabaja.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Talk tracks</h3>
+    <div class="tt"><div class="scen">Mención temprana</div><div class="say">"Bamboi resuelve el bambú eco para casa en España. Nosotros, también españoles, jugamos en lujo y regalo — y en la hostelería de Ibiza con marca propia."</div></div>
+    <div class="tt"><div class="scen">Desplazamiento</div><div class="say">"Para tu suscripción doméstica, Bamboi va bien. Para regalar o para tu hotel, Blovvn pone diseño y tu sello."</div></div>
+    <div class="tt"><div class="scen">Añadido tarde</div><div class="say">"En hostelería, Bamboi no co-marca; nosotros imprimimos tu marca en el envoltorio sin sumar SKU."</div></div>
+
+    <h3>Objeciones</h3>
+    <div class="obj"><div class="q">"Bamboi es español y más barato."</div><div class="a">Nosotros también somos de aquí, de Ibiza. La diferencia no es el origen sino la intención: Blovvn es diseño, regalo y marca para locales, no el consumible más barato.</div></div>
+    <div class="obj"><div class="q">"El bambú es el mismo."</div><div class="a">El material base puede parecerse; la experiencia no. El valor de Blovvn vive en el envoltorio, el monograma y el mundo de marca.</div></div>
+
+    <h3>Preguntas mina</h3>
+    <div class="mine">¿Puedes regalarlo o ponerle tu marca para un hotel o evento en Ibiza?</div>
+    <div class="mine">¿La caja y la banda transmiten algo, o es una bolsa eco más?</div>
+  </section>
+
+  <!-- ============ BLOVVN ============ -->
+  <section id="us" class="tab-content">
+    <div class="card accent">
+      <h2>★ Blovvn — nuestra carta</h2>
+      <p class="lead">No vendemos papel higiénico: vendemos un objeto de marca. El rollo se mantiene simple y económico; todo el lujo —y todo el margen— vive en el envoltorio y la personalización. Sello magenta, Ibiza, modelo de dos capas.</p>
+    </div>
+
+    <h3>Diferenciadores clave</h3>
+    <ul class="clean">
+      <li><b>Modelo de dos capas:</b> rollo barato + envoltorio a todo color por pedido, hasta cantidad uno — <b>cero complejidad de SKU</b>. Nadie en la categoría hace esto.</li>
+      <li><b>Personalización 1:1:</b> monograma, modo regalo y sello de cera por pedido. Renova, WGAC, Bumboo, Cheeky Panda y Bamboi no personalizan.</li>
+      <li><b>Tres niveles bajo una marca:</b> Todos los Días (reciclado), Firma (FSC-PEFC premium), Ultra (bambú) — cubrimos toda historia de material; los rivales suelen ser mono-material.</li>
+      <li><b>Paleta de interiorismo</b> (Natural · Piedra · Salvia · Arcilla · Carbón) con tintes seguros para la piel y conformes a la etiqueta ecológica de la UE.</li>
+      <li><b>B2B co-marcado</b> para hoteles, restaurantes y clubs — la línea de mayor margen, con la hostelería de Ibiza como mercado natural.</li>
+      <li><b>Mundo de marca:</b> sello magenta canónico, app, dispensador y pack-moneda — un objeto, no un consumible.</li>
+    </ul>
+
+    <h3>Pruebas y modelo</h3>
+    <div class="profile-grid">
+      <div class="pf"><div class="k">Todos los Días</div><div class="v">Reciclado · 2–3 capas · 6–8 €/rollo</div></div>
+      <div class="pf"><div class="k">Firma (por defecto)</div><div class="v">FSC/PEFC · 3 capas · 8–10 €/rollo</div></div>
+      <div class="pf"><div class="k">Ultra</div><div class="v">Bambú · 4 capas · 10–14 €/rollo</div></div>
+      <div class="pf"><div class="k">Suscripción</div><div class="v">−15% por defecto</div></div>
+      <div class="pf"><div class="k">Tienda</div><div class="v">Shopify headless DTC</div></div>
+      <div class="pf"><div class="k">Lanzamiento</div><div class="v">F1 Firma×Natural → F2 niveles → F3 B2B/estacional</div></div>
+    </div>
+
+    <h3>Encuadre maestro de venta</h3>
+    <div class="tt"><div class="scen">El reencuadre</div><div class="say">"No nos compares por precio por hoja — ahí pierde cualquier marca de lujo. Compáranos por el momento: el regalo, el baño de invitados, la suite del hotel, el club. Ahí el envoltorio, tu sello y la marca son todo. Eso es Blovvn."</div></div>
+    <div style="margin-top:10px">
+      <span class="tag">Lujo &gt; consumible</span><span class="tag">Envoltorio = margen</span><span class="tag">Personalización 1:1</span><span class="tag">Regalo &amp; hostelería</span><span class="tag">Ibiza · sello magenta</span><span class="tag">Tintes UE Ecolabel</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 Blovvn · Pañuelos de lujo · Ibiza — Battlecard generada el 9 jun 2026 a partir de investigación web pública y del sistema de marca de Blovvn. Precios de competidores aproximados (convertidos/estimados desde fuentes públicas en GBP/USD/EUR); verifica antes de usar en deal. Estrategia: plantar preguntas mina, nunca desprestigiar.
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      var id=t.getAttribute('data-tab');
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+      document.querySelectorAll('.tab-content').forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>

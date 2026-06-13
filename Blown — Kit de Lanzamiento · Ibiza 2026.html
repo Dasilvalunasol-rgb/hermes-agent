@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blown — Kit de Lanzamiento · Ibiza 2026</title>
+<style>
+  :root{--bg:#0a0a0c;--surf:#101014;--surf2:#15151b;--ink:#f3f3f6;--mut:#9aa0aa;
+    --mag:#e0117f;--magsoft:rgba(224,17,127,.12);--magbd:rgba(224,17,127,.42);
+    --line:rgba(255,255,255,.09);--win:#34d399;--lose:#f87171;--tie:#fbbf24}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);line-height:1.62;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;padding-bottom:60px}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  header.hero{text-align:center;padding:46px 22px 30px;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 90% at 50% -10%,rgba(224,17,127,.10),transparent 60%)}
+  .hero svg{width:118px;height:auto;display:block;margin:0 auto 14px}
+  .hero h1{font-family:Georgia,serif;font-size:34px;letter-spacing:.5px}
+  .hero .tag{color:var(--mut);font-size:14px;margin-top:8px}
+  .kicker{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--mag);border:1px solid var(--magbd);background:var(--magsoft);
+    border-radius:20px;padding:4px 12px;margin-bottom:12px}
+  section{padding:34px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:Georgia,serif;font-size:23px;margin-bottom:4px}
+  h2 .n{color:var(--mag);font-size:15px;margin-right:8px;font-family:Arial}
+  .sub{color:var(--mut);font-size:13.5px;margin-bottom:16px}
+  h3{font-size:15px;margin:20px 0 8px;color:#fff}
+  p{margin:9px 0;color:#dcdce2;font-size:14px}
+  .lead{font-size:15px;color:#e8e8ee}
+  ul{margin:8px 0 8px 2px;list-style:none}
+  li{position:relative;padding-left:18px;font-size:13.7px;color:#d4d4dc;margin:7px 0}
+  li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--mag)}
+  li.w::before{background:var(--win)} li.l::before{background:var(--lose)}
+  b{color:#fff}
+  .grid{display:grid;gap:14px} .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+  .card{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .card.mag{border-color:var(--magbd);background:linear-gradient(180deg,var(--magsoft),transparent 65%)}
+  .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--mut)}
+  .v{font-size:22px;font-family:Georgia,serif;margin-top:3px}
+  .vsub{font-size:11.5px;color:var(--mut);margin-top:2px}
+  table{width:100%;border-collapse:collapse;font-size:12.6px;margin-top:8px}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-size:11px;color:#fff;background:var(--surf2)}
+  thead th.us{color:#fff;background:var(--magsoft)}
+  tbody th{font-weight:500;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
+  td.us{background:rgba(224,17,127,.06);color:#fff}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .pill{display:inline-block;font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px;text-transform:uppercase;letter-spacing:.3px}
+  .pill.win{background:rgba(52,211,153,.16);color:var(--win)}
+  .pill.tie{background:rgba(251,191,36,.16);color:var(--tie)}
+  .pill.lose{background:rgba(248,113,113,.16);color:var(--lose)}
+  .sev{font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;margin-right:6px}
+  .sevH{background:rgba(248,113,113,.18);color:var(--lose)}
+  .sevM{background:rgba(251,191,36,.18);color:var(--tie)}
+  .sevL{background:rgba(52,211,153,.18);color:var(--win)}
+  .quote{border-left:3px solid var(--mag);padding:10px 14px;background:var(--surf);
+    border-radius:0 10px 10px 0;font-style:italic;color:#fff;font-size:14px;margin:10px 0}
+  .swatches{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .sw{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--mut)}
+  .dot{width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,.2)}
+  .disc{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:10px;
+    padding:11px 14px;font-size:12px;color:#e0e0e6;margin:6px 0 14px}
+  .toc{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+  .toc a{font-size:12px;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+    border-radius:8px;padding:6px 11px}
+  .toc a:hover{color:#fff;border-color:var(--magbd)}
+  footer{text-align:center;color:var(--mut);font-size:11.5px;padding-top:26px}
+</style></head>
+<body>
+<header class="hero">
+  <svg class="m2" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blown — Luxury Tissue · sello Primary Magenta" font-family="Georgia,serif">
+  <defs>
+    <radialGradient id="lidkit" cx="42%" cy="30%" r="80%"><stop offset="0%" stop-color="#ff8ce6"/><stop offset="55%" stop-color="#e0119a"/><stop offset="100%" stop-color="#9b0a6f"/></radialGradient>
+    <linearGradient id="sidekit" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e0119a"/><stop offset="100%" stop-color="#6e084f"/></linearGradient>
+    <linearGradient id="metkit" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c2c2cc"/><stop offset="12%" stop-color="#fdfdff"/><stop offset="30%" stop-color="#70707c"/><stop offset="48%" stop-color="#fdfdff"/><stop offset="66%" stop-color="#70707c"/><stop offset="85%" stop-color="#fdfdff"/><stop offset="100%" stop-color="#c2c2cc"/></linearGradient>
+    <radialGradient id="wellkit" cx="50%" cy="55%" r="65%"><stop offset="0%" stop-color="#3a0626"/><stop offset="70%" stop-color="#5e0a42"/><stop offset="100%" stop-color="#8a0a63"/></radialGradient>
+    <radialGradient id="domekit" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wipekit" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+    <radialGradient id="shkit" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <filter id="glowkit" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grillekit" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+      <rect width="7" height="7" fill="#2a0420"/><rect width="7" height="7" fill="none" stroke="#e84fc4" stroke-width="0.9"/>
+    </pattern>
+    <clipPath id="bclipkit"><text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+    <path id="arcAkit" d="M 270,275 Q 350,289 430,275" fill="none"/>
+    <path id="arcBkit" d="M 288,290 Q 350,300 412,290" fill="none"/>
+  </defs>
+  <rect x="0" y="0" width="700" height="470" fill="#0e0a10"/>
+  <ellipse cx="352" cy="430" rx="250" ry="48" fill="url(#shkit)"/>
+  <path d="M140,316 A210,82 0 0 0 560,316 L560,360 A210,82 0 0 1 140,360 Z" fill="url(#sidekit)"/>
+  <ellipse cx="350" cy="316" rx="210" ry="82" fill="url(#lidkit)"/>
+  <ellipse cx="350" cy="316" rx="188" ry="66" fill="none" stroke="#ffe1f4" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <path d="M150,286 A206,80 0 0 0 554,286 L554,316 A206,80 0 0 1 150,316 Z" fill="url(#metkit)"/>
+  <ellipse cx="352" cy="286" rx="206" ry="80" fill="url(#metkit)"/>
+  <path d="M205,300 q70,-26 150,0 q-70,20 -150,0 Z" fill="#000" opacity="0.30"/>
+  <path class="w2" d="M196,302 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipekit)" stroke="#d9d2c8" stroke-width="0.8"/>
+  <path class="w1" d="M210,300 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipekit)" stroke="#d9d2c8" stroke-width="0.9"/>
+  <path d="M138,236 A212,84 0 0 0 562,236 L562,280 A212,84 0 0 1 138,280 Z" fill="url(#sidekit)"/>
+  <ellipse cx="350" cy="236" rx="212" ry="84" fill="url(#lidkit)"/>
+  <ellipse cx="350" cy="236" rx="190" ry="68" fill="none" stroke="#ffe1f4" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <ellipse cx="350" cy="231" rx="84" ry="37" fill="#4d0636"/>
+  <ellipse cx="350" cy="229" rx="80" ry="34" fill="url(#wellkit)"/>
+  <ellipse class="glow" cx="350" cy="226" rx="52" ry="24" fill="#ff6fd6" filter="url(#glowkit)" opacity="0.4"/>
+  <ellipse class="press-ring" cx="350" cy="228" rx="70" ry="30" fill="none" stroke="#ffe1f4" stroke-width="3"/>
+  <g class="btn">
+    <text x="350" y="250" text-anchor="middle" font-size="50" font-weight="700" fill="#2a0420">B</text>
+    <text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" fill="url(#grillekit)" stroke="#ffe1f4" stroke-width="1.7" paint-order="stroke">B</text>
+    <rect x="300" y="190" width="100" height="80" fill="url(#domekit)" clip-path="url(#bclipkit)"/>
+  </g>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#2a0420" opacity="0.5"><textPath href="#arcAkit" startOffset="50%" text-anchor="middle">blown</textPath></text>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#ffe6f6"><textPath href="#arcAkit" startOffset="50%" text-anchor="middle" dy="-1.3">blown</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#2a0420" opacity="0.45" font-family="Arial,sans-serif"><textPath href="#arcBkit" startOffset="50%" text-anchor="middle">LUXURY TISSUE</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#e84fc4" font-family="Arial,sans-serif"><textPath href="#arcBkit" startOffset="50%" text-anchor="middle" dy="-1">LUXURY TISSUE</textPath></text>
+  <ellipse cx="344" cy="218" rx="60" ry="20" fill="url(#domekit)"/>
+</svg>
+  <div class="kicker">Kit de lanzamiento · Ibiza 2026</div>
+  <h1>blown — Luxury Tissue</h1>
+  <p class="tag">No vendemos papel higiénico: vendemos un objeto de marca. El lujo —y el margen— vive en el envoltorio.</p>
+  <nav class="toc">
+    <a href="#marca">1 · Marca</a><a href="#comp">2 · Competencia</a>
+    <a href="#camp">3 · Campaña</a><a href="#fin">4 · Forecast & P&amp;L</a><a href="#road">5 · Roadmap</a>
+  </nav>
+</header>
+<div class="wrap">
+
+<!-- 1 BRAND REVIEW -->
+<section id="marca">
+  <h2><span class="n">01</span>Revisión de marca</h2>
+  <div class="sub">Coherencia de identidad, voz y sistema visual · marketing:brand-review</div>
+  <p class="lead">Blown es una marca europea premium de papel higiénico, DTC en EUR. El modelo de <b>dos capas</b> es el corazón: el rollo se mantiene simple y barato; todo el lujo se concentra en el <b>envoltorio</b> (banda, funda, tarjeta, caja) y en la <b>personalización 1:1</b>.</p>
+
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card"><div class="k">Nombre & ícono</div><div class="v">blown</div><div class="vsub">Sello-cápsula pulsable · «LUXURY TISSUE» · Ibiza</div></div>
+    <div class="card mag"><div class="k">Color primario</div><div class="v" style="color:#e0117f">Primary Magenta</div><div class="vsub">#e0117f — el sello canónico</div></div>
+    <div class="card"><div class="k">Posición</div><div class="v">Objeto, no consumible</div><div class="vsub">Lujo de diseño · regalo · hostelería</div></div>
+  </div>
+
+  <h3>Sistema de color</h3>
+  <p>El magenta funciona como <b>sello/acento</b>, no como campo. Sobre él, una paleta sobria de interiorismo y 6 acabados premium para producto y B2B:</p>
+  <div class="swatches">
+    <span class="sw"><span class="dot" style="background:#1a1a1e"></span>Noir</span>
+    <span class="sw"><span class="dot" style="background:#1f4f93"></span>Cobalt steel</span>
+    <span class="sw"><span class="dot" style="background:#5e1320"></span>Oxblood</span>
+    <span class="sw"><span class="dot" style="background:#163a26"></span>Forest tobacco</span>
+    <span class="sw"><span class="dot" style="background:#28282d"></span>Carbon mono</span>
+    <span class="sw"><span class="dot" style="background:#c9883a"></span>Whisky on plum</span>
+  </div>
+  <div class="swatches" style="margin-top:6px">
+    <span class="sw"><span class="dot" style="background:#cfc9bf"></span>Natural</span>
+    <span class="sw"><span class="dot" style="background:#8d8f93"></span>Piedra</span>
+    <span class="sw"><span class="dot" style="background:#8a9a82"></span>Salvia</span>
+    <span class="sw"><span class="dot" style="background:#9a7c52"></span>Arcilla</span>
+    <span class="sw"><span class="dot" style="background:#2a2a2e"></span>Carbón</span>
+  </div>
+
+  <h3>Voz y tono</h3>
+  <ul>
+    <li><b>Reencuadre maestro:</b> nunca se compite por «precio por hoja»; se compite por el momento — regalo, baño de invitados, suite, club.</li>
+    <li><b>Confianza sin desprestigiar:</b> se reconoce el mérito del rival y se «plantan preguntas mina», nunca se ataca.</li>
+    <li><b>Bilingüe ES/EN:</b> español nativo (Ibiza/España) + inglés de lujo internacional.</li>
+  </ul>
+
+  <h3>Hallazgos accionables</h3>
+  <ul>
+    <li><span class="sev sevL">RESUELTO</span><b>Grafía del wordmark unificada a «blown»</b> en todos los assets (vídeos + sellos), eliminando la mezcla blown/blovvn.</li>
+    <li><span class="sev sevM">MEDIA</span><b>Magenta como acento, no como campo:</b> mantener los neutros sobrios para no contradecir la promesa de «paleta de interiorismo» (y no parecerse a los «colores chillones» que criticamos en Renova).</li>
+    <li><span class="sev sevM">MEDIA</span><b>Idioma del claim:</b> «LUXURY TISSUE» en inglés convive con SEO en español («papel higiénico de lujo») — usar versión bilingüe según canal.</li>
+    <li><span class="sev sevL">RESUELTO</span><b>Accesibilidad del motion:</b> assets con <code>prefers-reduced-motion</code> y <code>aria-label</code>.</li>
+    <li><span class="sev sevM">MEDIA</span><b>Tipografía:</b> fijar el par de marca (Georgia serif para el wordmark + sans para UI/cuerpo).</li>
+  </ul>
+</section>
+
+<!-- 2 COMPETITIVE -->
+<section id="comp">
+  <h2><span class="n">02</span>Inteligencia competitiva</h2>
+  <div class="sub">Battlecard resumida · sales:competitive-intelligence · fuente: investigación web pública</div>
+  <div class="disc">En <b>precio por hoja</b> las marcas eco-DTC ganan con holgura (~0,7–1,2 €/rollo vs 6–14 € de Blown). Blown <b>no compite en valor por hoja</b>: compite en diseño, personalización, regalo, marca y hostelería.</div>
+  <table>
+    <thead><tr><th>Dimensión</th><th class="us">Blown</th><th>Renova</th><th>Who Gives A Crap</th><th>Bumboo</th><th>Cheeky Panda</th><th>Bamboi</th></tr></thead>
+    <tbody>
+      <tr><th>Posición</th><td class="us">Lujo de diseño · objeto</td><td>Lujo de color</td><td>Eco con propósito</td><td>Bambú lujo eco</td><td>Bambú retail</td><td>Eco asequible local</td></tr>
+      <tr><th>Personalización</th><td class="us">Monograma · regalo · sello de cera (hasta 1 ud.)</td><td>Color de catálogo</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+      <tr><th>€/rollo</th><td class="us">6–14 €</td><td>1,5–3 €</td><td>0,9–1,2 €</td><td>~0,3 €/100h</td><td>0,9–1 €</td><td>0,7–1 €</td></tr>
+      <tr><th>B2B hostelería</th><td class="us">Sí — co-marca, alto margen</td><td>Sí (color)</td><td>Limitado</td><td>Limitado</td><td>Sí (oficina)</td><td>No</td></tr>
+      <tr><th>Suscripción</th><td class="us">Sí, −15%</td><td>No</td><td>Núcleo</td><td>−5%</td><td>−30% 1ª</td><td>Sí</td></tr>
+    </tbody>
+  </table>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3 style="margin-top:0;color:var(--win)">Dónde gana Blown</h3>
+      <ul><li class="w">Personalización 1:1 — único en la categoría.</li>
+      <li class="w">Modelo de dos capas: envoltorio a todo color por pedido, cero complejidad de SKU.</li>
+      <li class="w">Tres niveles (reciclado/FSC/bambú) bajo una marca.</li>
+      <li class="w">B2B co-marcado para hoteles, clubs y restaurantes de Ibiza.</li></ul></div>
+    <div class="card"><h3 style="margin-top:0;color:var(--lose)">Dónde pierde</h3>
+      <ul><li class="l">Precio por hoja vs eco-DTC (WGAC, Bumboo, Bamboi).</li>
+      <li class="l">Propósito social a escala (WGAC dona 50%).</li>
+      <li class="l">Distribución y reconocimiento inmediato (Renova en retail).</li></ul></div>
+  </div>
+  <div class="quote">«No nos compares por precio por hoja — ahí pierde cualquier marca de lujo. Compáranos por el momento: el regalo, la suite, el club. Ahí el envoltorio, tu sello y la marca son todo.»</div>
+</section>
+
+<!-- 3 CAMPAIGN -->
+<section id="camp">
+  <h2><span class="n">03</span>Plan de campaña de lanzamiento</h2>
+  <div class="sub">marketing:campaign-plan · objetivos ilustrativos para planificación</div>
+  <div class="grid g3">
+    <div class="card"><div class="k">Objetivo Año 1</div><div class="v">€267k</div><div class="vsub">ingresos · ~4.080 pedidos DTC</div></div>
+    <div class="card"><div class="k">B2B Ibiza</div><div class="v">30 cuentas</div><div class="vsub">activas a fin de año</div></div>
+    <div class="card"><div class="k">Suscripción</div><div class="v">10% → 35%</div><div class="vsub">mix sobre pedidos DTC</div></div>
+  </div>
+
+  <h3>Audiencias y mensaje</h3>
+  <table>
+    <thead><tr><th>Persona</th><th>Quién</th><th>Mensaje (reencuadre)</th></tr></thead>
+    <tbody>
+      <tr><td><b>Regalo & diseño</b></td><td>28–50, deco/gifting, EU + Ibiza</td><td>«El papel como objeto de regalo — con tu monograma y sello de cera.»</td></tr>
+      <tr><td><b>Hostelería premium</b></td><td>Hoteles boutique, beach clubs, restaurantes, villas (Ibiza)</td><td>«Tu marca impresa en la banda y la caja, sin sumar SKU.»</td></tr>
+      <tr><td><b>Hogar premium</b></td><td>Suscriptor de diseño, baño de invitados</td><td>«Una paleta de interiorismo en el baño, con −15% por suscripción.»</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Canales</h3>
+  <ul>
+    <li><b>DTC:</b> Shopify headless — el envoltorio y el personalizador como héroes de la página.</li>
+    <li><b>Social (IG/TikTok):</b> vídeo del sello y del proceso de personalización; los 6 acabados como contenido visual.</li>
+    <li><b>Partnerships & PR:</b> hoteles/beach clubs de Ibiza, prensa de diseño y lifestyle.</li>
+    <li><b>Email/CRM:</b> captación a suscripción, modo regalo estacional.</li>
+    <li><b>B2B outbound:</b> co-marca para hostelería, demo de banda/caja personalizada.</li>
+  </ul>
+
+  <h3>Calendario por fases</h3>
+  <table>
+    <thead><tr><th>Fase</th><th>Meses</th><th>Foco</th></tr></thead>
+    <tbody>
+      <tr><td><b>F1 · Validación</b></td><td>M1–M3</td><td>Solo Firma × Natural (+ Arcilla). Probar oferta, AOV y personalización.</td></tr>
+      <tr><td><b>F2 · Escala</b></td><td>M4–M8</td><td>Tres niveles + colores; empuje de suscripción; social siempre activo.</td></tr>
+      <tr><td><b>F3 · B2B & estacional</b></td><td>M9–M12</td><td>Hostelería co-marcada en Ibiza; ediciones limitadas y regalo navideño.</td></tr>
+    </tbody>
+  </table>
+  <p class="vsub">KPIs: CAC ≤ €25 · ROAS · conversión DTC · mix suscripción · AOV · cuentas B2B activas (MRR).</p>
+</section>
+
+<!-- 4 FINANCE -->
+<section id="fin">
+  <h2><span class="n">04</span>Forecast y P&amp;L (ilustrativo)</h2>
+  <div class="sub">sales:forecast + finance:financial-statements · ver modelo editable en el .xlsx</div>
+  <div class="disc"><b>ILUSTRATIVO.</b> Cifras de planificación basadas en supuestos del concepto (precios, AOV, mix, ramp), <b>no</b> son resultados reales. Todos los inputs son editables en <code>blown_modelo_financiero.xlsx</code>.</div>
+  <div class="grid g3">
+    <div class="card mag"><div class="k">Ingresos Año 1</div><div class="v">€267.262</div><div class="vsub">DTC €211k · B2B €56k</div></div>
+    <div class="card"><div class="k">Beneficio bruto</div><div class="v">€168.095</div><div class="vsub">margen 62,9%</div></div>
+    <div class="card"><div class="k">EBITDA</div><div class="v">€65.595</div><div class="vsub">margen 24,5%</div></div>
+  </div>
+  <h3>P&amp;L resumido (Año 1)</h3>
+  <table>
+    <tbody>
+      <tr><th>Ingresos DTC (neto suscripción)</th><td class="num">€211.012</td></tr>
+      <tr><th>Ingresos B2B hostelería</th><td class="num">€56.250</td></tr>
+      <tr><th>Ingresos totales</th><td class="num"><b>€267.262</b></td></tr>
+      <tr><th>COGS (papel + envoltorio + fulfillment)</th><td class="num">(€99.167)</td></tr>
+      <tr><th>Beneficio bruto · 62,9%</th><td class="num"><b>€168.095</b></td></tr>
+      <tr><th>Marketing</th><td class="num">(€60.500)</td></tr>
+      <tr><th>Opex fijo (12 meses)</th><td class="num">(€42.000)</td></tr>
+      <tr><th>EBITDA · 24,5%</th><td class="num"><b>€65.595</b></td></tr>
+    </tbody>
+  </table>
+  <h3>Escenarios</h3>
+  <table>
+    <thead><tr><th>Escenario</th><th>Factor</th><th class="num">Ingresos</th><th class="num">EBITDA</th></tr></thead>
+    <tbody>
+      <tr><td>Bear</td><td>0,65×</td><td class="num">€173.720</td><td class="num">€6.762</td></tr>
+      <tr><td><b>Base</b></td><td>1,00×</td><td class="num"><b>€267.262</b></td><td class="num"><b>€65.595</b></td></tr>
+      <tr><td>Bull</td><td>1,30×</td><td class="num">€347.441</td><td class="num">€116.024</td></tr>
+    </tbody>
+  </table>
+  <p class="vsub">Lógica: el rollo se mantiene barato; el margen vive en el envoltorio y en el B2B co-marcado. Marketing y Opex fijos en todos los escenarios.</p>
+</section>
+
+<!-- 5 ROADMAP -->
+<section id="road">
+  <h2><span class="n">05</span>Roadmap & próximos pasos</h2>
+  <div class="sub">De la marca al mercado</div>
+  <ul>
+    <li><b>Cerrar identidad:</b> par tipográfico, guía de uso del sello magenta sobre neutros, versiones del wordmark (favicon/sello de cera).</li>
+    <li><b>F1 (M1–M3):</b> tienda Shopify con Firma × Natural + personalizador; activar suscripción −15%; medir AOV y CAC reales para sustituir los supuestos del modelo.</li>
+    <li><b>Contenido:</b> usar los vídeos de marca (reel 6 acabados + magenta) en IG/TikTok y página de inicio.</li>
+    <li><b>B2B Ibiza:</b> pipeline de hoteles/beach clubs; muestra física de banda y caja co-marcadas.</li>
+    <li><b>Datos:</b> conectar SEO real (web en vivo) y cuentas objetivo para activar los comandos que hoy quedaron fuera por falta de datos.</li>
+  </ul>
+</section>
+
+<footer>Blown · Luxury Tissue · Ibiza 2026 — Kit de lanzamiento generado el 9 jun 2026. Inteligencia competitiva: investigación web pública. Finanzas: <b>ilustrativas</b>, supuestos del concepto, no constituyen previsión auditada ni asesoramiento financiero.</footer>
+</div>
+</body></html>

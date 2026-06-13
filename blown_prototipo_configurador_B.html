@@ -1,0 +1,188 @@
+<style>
+  .cfg{background:#0e0a10;border-radius:14px;padding:24px;display:flex;gap:28px;flex-wrap:wrap;font-family:Georgia,serif;color:#f7dcec}
+  .cfg .stage{flex:1;min-width:300px;display:flex;flex-direction:column;align-items:center}
+  .cfg svg{width:100%;max-width:360px;height:auto;display:block}
+  .cfg .hint{font-size:12px;letter-spacing:4px;color:#dba9c8;font-family:Arial,sans-serif;margin-top:6px}
+  .cfg .panel{flex:1;min-width:260px}
+  .cfg h3{font-size:12px;letter-spacing:4px;color:#dba9c8;font-family:Arial,sans-serif;font-weight:400;margin:18px 0 10px}
+  .cfg .sw{display:flex;gap:10px;flex-wrap:wrap}
+  .cfg .sw button{width:36px;height:36px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+  .cfg .sw button.on{border-color:#ffe1f4}
+  .cfg .swname{font-size:13px;color:#f7dcec;margin-top:8px;min-height:18px}
+  .cfg .packs{display:flex;flex-direction:column;gap:8px}
+  .cfg .packs label{border:1px solid #3a2a36;border-radius:10px;padding:10px 12px;cursor:pointer;display:block}
+  .cfg .packs label.on{border-color:#e0119a}
+  .cfg .packs input{display:none}
+  .cfg .pn{font-size:15px}
+  .cfg .pd{font-size:12px;color:#dba9c8;font-family:Arial,sans-serif;margin-top:2px}
+  .cfg .price{margin-top:18px;border-top:1px solid #3a2a36;padding-top:14px}
+  .cfg .pf{font-size:34px}
+  .cfg .pvp{font-size:14px;color:#dba9c8;text-decoration:line-through;margin-left:10px}
+  .cfg .serie{font-size:11px;letter-spacing:3px;color:#dba9c8;font-family:Arial,sans-serif;margin-top:4px}
+  .cfg .btn2{margin-top:14px;background:#e0119a;color:#fff;border:none;border-radius:24px;padding:11px 22px;font-size:14px;letter-spacing:2px;cursor:pointer;font-family:Arial,sans-serif}
+  .cfg .b-btn{transform-origin:320px 367px;cursor:pointer}
+  .cfg .d-btn{transform-origin:312px 181px;cursor:pointer}
+  .cfg svg.goC .d-btn{animation:cpr .5s ease}
+  .cfg svg.goL .b-btn{animation:cpr .5s ease}
+  .cfg .w1{transform:translateX(-110px);opacity:0}
+  .cfg .w2{transform:translateX(-114px);opacity:0;transform-origin:446px 280px}
+  .cfg .w5{transform:translateX(-72px);opacity:0}
+  .cfg .w6{transform:translateX(-76px);opacity:0;transform-origin:446px 181px}
+  .cfg .w7{transform:translateX(-72px);opacity:0}
+  .cfg .w8{transform:translateX(-76px);opacity:0;transform-origin:476px 371px}
+  .cfg .pring{opacity:0;transform-origin:320px 367px}
+  .cfg .glowE{opacity:.3}
+  @keyframes cpr{0%{transform:translateY(0)}40%{transform:translateY(7px)}100%{transform:translateY(0)}}
+  .cfg svg.goL .w1{animation:co3 1.6s .15s ease forwards}
+  @keyframes co3{0%{transform:translateX(-110px);opacity:0}30%{opacity:1}100%{transform:translateX(0);opacity:1}}
+  .cfg svg.goL .w2{animation:co4 1.6s .3s ease forwards}
+  @keyframes co4{0%{transform:translateX(-114px);opacity:0}30%{opacity:1}100%{transform:translateX(8px) rotate(2deg);opacity:1}}
+  .cfg svg.goC .w5{animation:co1 1.6s .15s ease forwards}
+  @keyframes co1{0%{transform:translateX(-72px);opacity:0}30%{opacity:1}100%{transform:translateX(0);opacity:1}}
+  .cfg svg.goC .w6{animation:co2 1.6s .3s ease forwards}
+  @keyframes co2{0%{transform:translateX(-76px);opacity:0}30%{opacity:1}100%{transform:translateX(10px) rotate(6deg);opacity:1}}
+  .cfg svg.goC .w7{animation:co1 1.6s .25s ease forwards}
+  .cfg svg.goC .w8{animation:co2 1.6s .4s ease forwards}
+  .cfg svg.goL .pring{animation:ctap .9s ease}
+  @keyframes ctap{0%{opacity:0;transform:scale(.4)}30%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.3)}}
+  .cfg svg.goL .glowE{animation:cfl 1.2s ease forwards}
+  @keyframes cfl{0%{opacity:.3}30%{opacity:1}100%{opacity:.45}}
+</style>
+<div class="cfg">
+  <div class="stage">
+    <svg id="bsvg" viewBox="0 0 700 565" xmlns="http://www.w3.org/2000/svg" font-family="Georgia,serif">
+      <defs>
+        <radialGradient id="c_lid" cx="38%" cy="26%" r="85%"><stop class="fl1" offset="0%" stop-color="#ff8ce6"/><stop class="fl2" offset="55%" stop-color="#e0119a"/><stop class="fl3" offset="100%" stop-color="#9b0a6f"/></radialGradient>
+        <linearGradient id="c_side" x1="0" y1="0" x2="0" y2="1"><stop class="fs1" offset="0%" stop-color="#b80d80"/><stop class="fs2" offset="100%" stop-color="#56063e"/></linearGradient>
+        <linearGradient id="c_met" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c2c2cc"/><stop offset="12%" stop-color="#fdfdff"/><stop offset="30%" stop-color="#70707c"/><stop offset="48%" stop-color="#fdfdff"/><stop offset="66%" stop-color="#70707c"/><stop offset="85%" stop-color="#fdfdff"/><stop offset="100%" stop-color="#c2c2cc"/></linearGradient>
+        <radialGradient id="c_well" cx="50%" cy="55%" r="65%"><stop class="fw1" offset="0%" stop-color="#3a0626"/><stop class="fw2" offset="70%" stop-color="#5e0a42"/><stop class="fw3" offset="100%" stop-color="#8a0a63"/></radialGradient>
+        <radialGradient id="c_dome" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+        <linearGradient id="c_wipe" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+        <radialGradient id="c_sh" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+        <filter id="c_glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+        <pattern id="c_grid" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path id="gridline" d="M0,0 H14 M0,0 V14" stroke="#ffb7ea" stroke-width="1" fill="none"/><circle id="griddot" cx="0" cy="0" r="1.5" fill="#ffd4f1"/></pattern>
+        <pattern id="c_grille" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+          <rect id="grilleBg" width="7" height="7" fill="#2a0420"/>
+          <rect id="grilleLine" x="0" y="0" width="7" height="7" fill="none" stroke="#e84fc4" stroke-width="0.9"/>
+        </pattern>
+        <clipPath id="c_bclip"><text x="320" y="380" text-anchor="middle" font-size="56" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+        <clipPath id="c_slotL"><rect x="442" y="130" width="190" height="280"/></clipPath>
+        <clipPath id="c_slotR1"><rect x="442" y="130" width="180" height="110"/></clipPath>
+        <clipPath id="c_slotR2"><rect x="472" y="320" width="180" height="110"/></clipPath>
+        <clipPath id="c_wellTop"><ellipse cx="312" cy="179" rx="51" ry="43"/></clipPath>
+        <clipPath id="c_wellBot"><ellipse cx="320" cy="367" rx="70" ry="52"/></clipPath>
+        <filter id="c_refl" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.5"/></filter>
+      </defs>
+      <ellipse cx="350" cy="486" rx="240" ry="42" fill="url(#c_sh)"/>
+      <path d="M210,90 L330,90 A105,91 0 0 1 330,272 A135,99 0 0 1 330,470 L210,470 Z" transform="translate(16,12)" fill="url(#c_side)"/>
+      <path d="M210,90 L330,90 A105,91 0 0 1 330,272 A135,99 0 0 1 330,470 L210,470 Z" transform="translate(8,6)" fill="none" stroke="url(#c_met)" stroke-width="5"/>
+      <path d="M210,90 L330,90 A105,91 0 0 1 330,272 A135,99 0 0 1 330,470 L210,470 Z" fill="url(#c_lid)"/>
+      <path id="gridpath" d="M224,104 L330,104 A91,77 0 0 1 330,258 Q302,272 330,286 A121,85 0 0 1 330,456 L224,456 Z" fill="url(#c_grid)" opacity="0.32"/>
+      <path id="keyline" d="M224,104 L330,104 A91,77 0 0 1 330,258 Q302,272 330,286 A121,85 0 0 1 330,456 L224,456 Z" fill="none" stroke="#ffe1f4" stroke-width="1.4" stroke-dasharray="2 7" opacity="0.85"/>
+      <ellipse cx="275" cy="128" rx="60" ry="26" fill="url(#c_dome)"/>
+      <ellipse cx="282" cy="312" rx="70" ry="26" fill="url(#c_dome)"/>
+      <ellipse class="wb" cx="312" cy="181" rx="55" ry="46" fill="#4d0636"/>
+      <ellipse cx="312" cy="179" rx="51" ry="43" fill="url(#c_well)"/>
+      <g class="d-btn" id="dbtn">
+        <text x="312" y="199" text-anchor="middle" font-size="44" font-weight="700" fill="#180110">B</text>
+        <text id="dglyph" x="312" y="196" text-anchor="middle" font-size="44" font-weight="700" fill="url(#c_grille)" stroke="#ffe1f4" stroke-width="1.5" paint-order="stroke">B</text>
+        <g clip-path="url(#c_wellTop)"><text id="drefl" x="312" y="-204" transform="scale(1,-1)" text-anchor="middle" font-size="44" font-weight="700" fill="#ffe1f4" filter="url(#c_refl)" opacity="0.3">B</text></g>
+      </g>
+      <ellipse cx="312" cy="172" rx="34" ry="18" fill="url(#c_dome)"/>
+      <ellipse class="wb" cx="320" cy="369" rx="74" ry="55" fill="#4d0636"/>
+      <ellipse cx="320" cy="367" rx="70" ry="52" fill="url(#c_well)"/>
+      <ellipse class="glowE" id="glowE" cx="320" cy="364" rx="44" ry="26" fill="#ff6fd6" filter="url(#c_glow)"/>
+      <ellipse class="pring" id="pring" cx="320" cy="367" rx="58" ry="38" fill="none" stroke="#ffd4f1" stroke-width="3"/>
+      <g class="b-btn" id="bbtn">
+        <text x="320" y="372" text-anchor="middle" font-size="24" letter-spacing="3" fill="#f7dcec">blown</text>
+        <text x="320" y="392" text-anchor="middle" font-size="8" letter-spacing="2" fill="#dba9c8" font-family="Arial,sans-serif">LUXURY TISSUE IBIZA</text>
+        <g clip-path="url(#c_wellBot)"><text x="320" y="-400" transform="scale(1,-1)" text-anchor="middle" font-size="24" letter-spacing="3" fill="#f7dcec" filter="url(#c_refl)" opacity="0.28">blown</text></g>
+      </g>
+      <g transform="translate(645,0) scale(-1,1)" clip-path="url(#c_slotL)">
+        <path class="w2" d="M446,236 L506,236 Q528,246 520,262 Q512,276 524,288 Q516,304 504,304 Q514,318 496,324 L446,324 Z" fill="url(#c_wipe)" stroke="#d9d2c8" stroke-width="0.8"/>
+        <path class="w1" d="M446,228 L518,228 Q542,238 536,256 Q528,272 540,284 Q532,300 522,302 Q540,314 528,326 Q514,336 498,330 L446,330 Z" fill="url(#c_wipe)" stroke="#d9d2c8" stroke-width="0.9"/>
+      </g>
+      <rect x="194" y="210" width="26" height="140" rx="13" fill="url(#c_met)"/>
+      <rect x="202" y="220" width="9" height="120" rx="4.5" fill="#2a0420"/>
+      <g transform="translate(8,6)">
+      <g clip-path="url(#c_slotR1)">
+        <path class="w6" d="M446,161 L484,161 Q504,169 496,181 Q488,191 502,199 Q492,209 478,207 L446,207 Z" fill="url(#c_wipe)" stroke="#d9d2c8" stroke-width="0.8"/>
+        <path class="w5" d="M446,157 L492,157 Q510,163 504,175 Q496,185 510,193 Q502,205 486,205 L446,205 Z" fill="url(#c_wipe)" stroke="#d9d2c8" stroke-width="0.9"/>
+      </g>
+      <rect x="424" y="155" width="22" height="52" rx="10" fill="url(#c_met)"/>
+      <rect x="431" y="163" width="7" height="36" rx="3.5" fill="#2a0420"/>
+      <g clip-path="url(#c_slotR2)">
+        <path class="w8" d="M476,351 L514,351 Q534,359 526,371 Q518,381 532,389 Q522,399 508,397 L476,397 Z" fill="url(#c_wipe)" stroke="#d9d2c8" stroke-width="0.8"/>
+        <path class="w7" d="M476,347 L522,347 Q540,353 534,365 Q526,375 540,383 Q532,395 516,395 L476,395 Z" fill="url(#c_wipe)" stroke="#d9d2c8" stroke-width="0.9"/>
+      </g>
+      <rect x="454" y="345" width="22" height="52" rx="10" fill="url(#c_met)"/>
+      <rect x="461" y="353" width="7" height="36" rx="3.5" fill="#2a0420"/>
+      </g>
+      <text x="350" y="528" text-anchor="middle" font-size="40" letter-spacing="3" fill="#f7dcec">blovvn</text>
+      <text x="350" y="551" text-anchor="middle" font-size="14" letter-spacing="8" fill="#dba9c8" font-family="Arial,sans-serif">LUXURY TISSUE IBIZA</text>
+    </svg>
+    <div class="hint">B → TISSUES · SELLO → PAPEL DE COCINA</div>
+  </div>
+  <div class="panel">
+    <h3>ACABADO</h3>
+    <div class="sw" id="swatches"></div>
+    <div class="swname" id="swname">Magenta seal</div>
+    <h3>PACK</h3>
+    <div class="packs" id="packs"></div>
+    <div class="price">
+      <span class="pf" id="pf">62 €</span><span class="pvp" id="pvp">89 €</span>
+      <div class="serie">PRECIO FUNDADOR · −30% · SERIE DE 100 · IBIZA</div>
+      <button class="btn2" id="cta">RESERVAR SERIE FUNDADORA</button>
+    </div>
+  </div>
+</div>
+<script>
+const FIN={
+ magenta:{n:'Primary — magenta foil',sw:'#e0119a',l:'#ff8ce6',m:'#e0119a',d:'#9b0a6f',s1:'#b80d80',s2:'#56063e',w1:'#3a0626',w2:'#5e0a42',w3:'#8a0a63',wb:'#4d0636',glow:'#ff6fd6',key:'#ffe1f4',grid:'#ffb7ea',grille:'#e84fc4',gbg:'#2a0420',p:0},
+ reverse:{n:'Reverse — on plum / black',sw:'#3c0a2e',l:'#7a1259',m:'#3c0a2e',d:'#16030f',s1:'#2c0721',s2:'#0d020a',w1:'#4d0636',w2:'#7a0a58',w3:'#b40d82',wb:'#33051f',glow:'#ff5ad0',key:'#ff8ce6',grid:'#e0119a',grille:'#ff8ce6',gbg:'#16030f',p:6},
+ emboss:{n:'Emboss — blind deboss',sw:'#b00f7d',l:'#d44fae',m:'#b00f7d',d:'#7a0a58',s1:'#960d6b',s2:'#4a0635',w1:'#5e0a42',w2:'#8a0a63',w3:'#b00f7d',wb:'#6e0a50',glow:'#e87fc4',key:'#e87fc4',grid:'#c94da4',grille:'#c94da4',gbg:'#7a0a58',p:6},
+ monomag:{n:'Mono — magenta',sw:'#ee2aa8',l:'#ee2aa8',m:'#e0119a',d:'#c00e84',s1:'#cc108c',s2:'#960b66',w1:'#8a0a63',w2:'#b40d82',w3:'#e0119a',wb:'#9b0a6f',glow:'#ff8ce6',key:'#ffd4f1',grid:'#ff8ce6',grille:'#ff8ce6',gbg:'#c00e84',p:0},
+ monotissue:{n:'Mono — on tissue',sw:'#f2e3ec',l:'#fff6fb',m:'#f2e3ec',d:'#d9c2d0',s1:'#e3cdd9',s2:'#b898a8',w1:'#e8d4df',w2:'#f4e4ee',w3:'#ffffff',wb:'#dec8d4',glow:'#ff8ce6',key:'#e0119a',grid:'#e0119a',grille:'#e0119a',gbg:'#fdf3f9',p:6},
+ diamond:{n:'Diamond — hardware',sw:'#1c0414',l:'#2e0822',m:'#1c0414',d:'#0d020a',s1:'#1a0410',s2:'#070103',w1:'#2a0420',w2:'#4d0636',w3:'#7a0a58',wb:'#1c0414',glow:'#ff6fd6',key:'#ffe1f4',grid:'#e84fc4',gop:0.85,grille:'#e84fc4',gbg:'#2a0420',p:18},
+ noir:{n:'Noir — onyx + magenta keyline',sw:'#232329',l:'#4a4a54',m:'#232329',d:'#0d0d12',s1:'#2c2c33',s2:'#0a0a0e',w1:'#121218',w2:'#1e1e26',w3:'#34343f',wb:'#16161c',glow:'#e0119a',key:'#e0119a',grid:'#e0119a',grille:'#e84fc4',gbg:'#16161c',p:6},
+ cobalt:{n:'Cobalt steel',sw:'#1565e0',l:'#8ec4ff',m:'#1565e0',d:'#0a3a8a',s1:'#1150b4',s2:'#062250',w1:'#08183a',w2:'#0d2c5e',w3:'#1a4d9e',wb:'#0a2048',glow:'#6fb6ff',key:'#dcecff',grid:'#9cc6ff',grille:'#4f9be8',gbg:'#08183a',p:12},
+ oxblood:{n:'Oxblood',sw:'#a31221',l:'#ff7d7d',m:'#a31221',d:'#4a060d',s1:'#8a0f1c',s2:'#2e040a',w1:'#33050b',w2:'#561019',w3:'#8a1a28',wb:'#400710',glow:'#ff6f6f',key:'#ffd9d9',grid:'#ff9c9c',grille:'#e84f5c',gbg:'#2e040a',p:12},
+ forest:{n:'Forest tobacco',sw:'#4f6f33',l:'#b9c97a',m:'#4f6f33',d:'#1d2f12',s1:'#3f5a28',s2:'#16240d',w1:'#1a260f',w2:'#2e4419',w3:'#4f6f33',wb:'#202e13',glow:'#c9a04e',key:'#e8d9a8',grid:'#cdb96f',grille:'#c9a04e',gbg:'#16240d',p:12},
+ carbon:{n:'Carbon mono',sw:'#5a5a64',l:'#b9b9c4',m:'#5a5a64',d:'#232328',s1:'#4a4a52',s2:'#1a1a20',w1:'#222228',w2:'#33333c',w3:'#55555f',wb:'#26262c',glow:'#dfdfe8',key:'#f0f0f5',grid:'#c4c4cf',grille:'#9a9aa4',gbg:'#1a1a20',p:6},
+ whisky:{n:'Whisky on plum',sw:'#8a35b4',l:'#e2a9ff',m:'#8a35b4',d:'#41135e',s1:'#7128a0',s2:'#2a0a40',w1:'#2c0a42',w2:'#4a1668',w3:'#7a2ea0',wb:'#36104e',glow:'#d98fff',key:'#f0d9ff',grid:'#d9a8f4',grille:'#c9a04e',gbg:'#2a0a40',p:12}
+};
+const PACKS={solo:{n:'La B',d:'Recipiente + 1 cartucho (80 tissues)',p:0},ritual:{n:'B Rituel',d:'Recipiente + 3 cartuchos',p:24},founder:{n:'Founder Edition',d:'Numerada y grabada + 6 cartuchos + caja',p:60}};
+const BASE=89;let curF='magenta',curP='solo';
+function setAttr(sel,attr,val){document.querySelectorAll(sel).forEach(e=>e.setAttribute(attr,val))}
+function apply(){const F=FIN[curF];
+ setAttr('.fl1','stop-color',F.l);setAttr('.fl2','stop-color',F.m);setAttr('.fl3','stop-color',F.d);
+ setAttr('.fs1','stop-color',F.s1);setAttr('.fs2','stop-color',F.s2);
+ setAttr('.fw1','stop-color',F.w1);setAttr('.fw2','stop-color',F.w2);setAttr('.fw3','stop-color',F.w3);
+ setAttr('.wb','fill',F.wb);
+ document.getElementById('glowE').setAttribute('fill',F.glow);
+ document.getElementById('keyline').setAttribute('stroke',F.key);
+ document.getElementById('gridline').setAttribute('stroke',F.grid);
+ document.getElementById('grilleLine').setAttribute('stroke',F.grille);
+ document.getElementById('grilleBg').setAttribute('fill',F.gbg);
+ document.getElementById('gridpath').setAttribute('opacity',F.gop||0.32);
+ document.getElementById('griddot').setAttribute('fill',F.grid);
+ document.getElementById('dglyph').setAttribute('stroke',F.key);
+ document.getElementById('drefl').setAttribute('fill',F.key);
+ document.getElementById('pring').setAttribute('stroke',F.key);
+ document.getElementById('swname').textContent=F.n;
+ const pvp=BASE+F.p+PACKS[curP].p,fo=Math.round(pvp*0.7);
+ document.getElementById('pf').textContent=fo+' €';document.getElementById('pvp').textContent=pvp+' €';
+ document.querySelectorAll('#swatches button').forEach(b=>b.classList.toggle('on',b.dataset.k===curF));
+ document.querySelectorAll('#packs label').forEach(l=>l.classList.toggle('on',l.dataset.k===curP));
+}
+const sw=document.getElementById('swatches');
+Object.keys(FIN).forEach(k=>{const b=document.createElement('button');b.dataset.k=k;b.style.background=FIN[k].sw;b.setAttribute('aria-label',FIN[k].n);b.onclick=()=>{curF=k;apply()};sw.appendChild(b)});
+const pk=document.getElementById('packs');
+Object.keys(PACKS).forEach(k=>{const l=document.createElement('label');l.dataset.k=k;l.innerHTML='<div class="pn">'+PACKS[k].n+(PACKS[k].p?' · +'+PACKS[k].p+' €':'')+'</div><div class="pd">'+PACKS[k].d+'</div>';l.onclick=()=>{curP=k;apply()};pk.appendChild(l)});
+const svg=document.getElementById('bsvg');
+function fire(c){svg.classList.remove('goL','goC');void svg.getBoundingClientRect();requestAnimationFrame(()=>svg.classList.add(c))}
+document.getElementById('dbtn').addEventListener('click',()=>fire('goC'));
+document.getElementById('bbtn').addEventListener('click',()=>fire('goL'));
+document.getElementById('cta').addEventListener('click',()=>{const F=FIN[curF],pvp=BASE+F.p+PACKS[curP].p,fo=Math.round(pvp*0.7);if(window.sendPrompt){sendPrompt('Reserva fundador: acabado '+F.n+', pack '+PACKS[curP].n+', precio fundador '+fo+' €')}else{document.getElementById('cta').textContent='RESERVADO · '+fo+' €'}});
+apply();
+</script>

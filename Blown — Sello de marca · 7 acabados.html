@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blown — Sello de marca · 7 acabados</title>
+<style>
+  :root{--ink:#f3f3f6;--muted:#9aa0aa;--line:rgba(255,255,255,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0a0a0c;color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    padding:40px 22px 70px;-webkit-font-smoothing:antialiased}
+  header{max-width:1180px;margin:0 auto 26px;text-align:center}
+  header h1{font-family:Georgia,serif;font-weight:700;font-size:34px;letter-spacing:1px}
+  header p{color:var(--muted);font-size:14px;margin-top:8px}
+  .grid{max-width:1180px;margin:0 auto;display:grid;gap:18px;
+    grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+  .card{background:#0e0e11;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .stage{background:#000}
+  .stage svg{width:100%;height:auto;display:block}
+  figcaption{display:flex;align-items:center;justify-content:space-between;
+    padding:13px 16px;border-top:1px solid var(--line)}
+  .nm{font-family:Georgia,serif;font-size:16px;letter-spacing:.3px}
+  .chips{display:flex;gap:6px}
+  .chip{width:15px;height:15px;border-radius:50%;border:1px solid rgba(255,255,255,.22)}
+  footer{max-width:1180px;margin:30px auto 0;color:var(--muted);font-size:12px;
+    text-align:center;border-top:1px solid var(--line);padding-top:18px}
+
+  /* shared press animation */
+  .m2 .btn{animation:m2press 4s ease-in-out infinite;transform-origin:350px 230px}
+  @keyframes m2press{0%,16%{transform:translateY(0)}23%{transform:translateY(7px)}32%,100%{transform:translateY(0)}}
+  .m2 .glow{animation:m2flash 4s ease-in-out infinite}
+  @keyframes m2flash{0%,16%{opacity:.3}24%{opacity:1}45%,100%{opacity:.4}}
+  .m2 .w1{animation:m2o1 4s ease-in-out infinite}
+  @keyframes m2o1{0%,24%{transform:translateX(42px);opacity:0}34%{opacity:1}48%,84%{transform:translateX(0);opacity:1}95%,100%{transform:translateX(42px);opacity:0}}
+  .m2 .w2{animation:m2o2 4s ease-in-out infinite}
+  @keyframes m2o2{0%,34%{transform:translate(48px,0);opacity:0}44%{opacity:1}58%,82%{transform:translate(8px,5px);opacity:1}93%,100%{transform:translate(48px,0);opacity:0}}
+  .m2 .press-ring{animation:m2tap 4s ease-in-out infinite;transform-origin:350px 228px}
+  @keyframes m2tap{0%,15%{opacity:0;transform:scale(.4)}24%{opacity:.7;transform:scale(1)}40%,100%{opacity:0;transform:scale(1.3)}}
+
+  @media (prefers-reduced-motion: reduce){
+    .m2 .btn,.m2 .glow,.m2 .w1,.m2 .w2,.m2 .press-ring{animation:none}
+    .m2 .glow{opacity:.85} .m2 .w1,.m2 .w2{opacity:1;transform:none}
+    .m2 .press-ring{opacity:0}
+  }
+</style></head>
+<body>
+  <header>
+    <h1>blown</h1>
+    <p>Sistema de marca en movimiento — color original Primary Magenta + 6 acabados sobrios. El lujo vive en el envoltorio.</p>
+  </header>
+  <div class="grid">
+    <figure class="card">
+      <div class="stage"><svg class="m2" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blown — Luxury Tissue · sello Primary Magenta" font-family="Georgia,serif">
+  <defs>
+    <radialGradient id="lid0" cx="42%" cy="30%" r="80%"><stop offset="0%" stop-color="#ff8ce6"/><stop offset="55%" stop-color="#e0119a"/><stop offset="100%" stop-color="#9b0a6f"/></radialGradient>
+    <linearGradient id="side0" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e0119a"/><stop offset="100%" stop-color="#6e084f"/></linearGradient>
+    <linearGradient id="met0" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c2c2cc"/><stop offset="12%" stop-color="#fdfdff"/><stop offset="30%" stop-color="#70707c"/><stop offset="48%" stop-color="#fdfdff"/><stop offset="66%" stop-color="#70707c"/><stop offset="85%" stop-color="#fdfdff"/><stop offset="100%" stop-color="#c2c2cc"/></linearGradient>
+    <radialGradient id="well0" cx="50%" cy="55%" r="65%"><stop offset="0%" stop-color="#3a0626"/><stop offset="70%" stop-color="#5e0a42"/><stop offset="100%" stop-color="#8a0a63"/></radialGradient>
+    <radialGradient id="dome0" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wipe0" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+    <radialGradient id="sh0" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <filter id="glow0" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grille0" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+      <rect width="7" height="7" fill="#2a0420"/><rect width="7" height="7" fill="none" stroke="#e84fc4" stroke-width="0.9"/>
+    </pattern>
+    <clipPath id="bclip0"><text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+    <path id="arcA0" d="M 270,275 Q 350,289 430,275" fill="none"/>
+    <path id="arcB0" d="M 288,290 Q 350,300 412,290" fill="none"/>
+  </defs>
+  <rect x="0" y="0" width="700" height="470" fill="#0e0a10"/>
+  <ellipse cx="352" cy="430" rx="250" ry="48" fill="url(#sh0)"/>
+  <path d="M140,316 A210,82 0 0 0 560,316 L560,360 A210,82 0 0 1 140,360 Z" fill="url(#side0)"/>
+  <ellipse cx="350" cy="316" rx="210" ry="82" fill="url(#lid0)"/>
+  <ellipse cx="350" cy="316" rx="188" ry="66" fill="none" stroke="#ffe1f4" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <path d="M150,286 A206,80 0 0 0 554,286 L554,316 A206,80 0 0 1 150,316 Z" fill="url(#met0)"/>
+  <ellipse cx="352" cy="286" rx="206" ry="80" fill="url(#met0)"/>
+  <path d="M205,300 q70,-26 150,0 q-70,20 -150,0 Z" fill="#000" opacity="0.30"/>
+  <path class="w2" d="M196,302 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe0)" stroke="#d9d2c8" stroke-width="0.8"/>
+  <path class="w1" d="M210,300 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe0)" stroke="#d9d2c8" stroke-width="0.9"/>
+  <path d="M138,236 A212,84 0 0 0 562,236 L562,280 A212,84 0 0 1 138,280 Z" fill="url(#side0)"/>
+  <ellipse cx="350" cy="236" rx="212" ry="84" fill="url(#lid0)"/>
+  <ellipse cx="350" cy="236" rx="190" ry="68" fill="none" stroke="#ffe1f4" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <ellipse cx="350" cy="231" rx="84" ry="37" fill="#4d0636"/>
+  <ellipse cx="350" cy="229" rx="80" ry="34" fill="url(#well0)"/>
+  <ellipse class="glow" cx="350" cy="226" rx="52" ry="24" fill="#ff6fd6" filter="url(#glow0)" opacity="0.4"/>
+  <ellipse class="press-ring" cx="350" cy="228" rx="70" ry="30" fill="none" stroke="#ffe1f4" stroke-width="3"/>
+  <g class="btn">
+    <text x="350" y="250" text-anchor="middle" font-size="50" font-weight="700" fill="#2a0420">B</text>
+    <text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" fill="url(#grille0)" stroke="#ffe1f4" stroke-width="1.7" paint-order="stroke">B</text>
+    <rect x="300" y="190" width="100" height="80" fill="url(#dome0)" clip-path="url(#bclip0)"/>
+  </g>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#2a0420" opacity="0.5"><textPath href="#arcA0" startOffset="50%" text-anchor="middle">blown</textPath></text>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#ffe6f6"><textPath href="#arcA0" startOffset="50%" text-anchor="middle" dy="-1.3">blown</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#2a0420" opacity="0.45" font-family="Arial,sans-serif"><textPath href="#arcB0" startOffset="50%" text-anchor="middle">LUXURY TISSUE</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#e84fc4" font-family="Arial,sans-serif"><textPath href="#arcB0" startOffset="50%" text-anchor="middle" dy="-1">LUXURY TISSUE</textPath></text>
+  <ellipse cx="344" cy="218" rx="60" ry="20" fill="url(#dome0)"/>
+</svg></div>
+      <figcaption>
+        <span class="nm">Primary Magenta</span>
+        <span class="chips"><span class="chip" style="background:#e0119a" title="#e0119a"></span><span class="chip" style="background:#c2c2cc" title="#c2c2cc"></span><span class="chip" style="background:#ff6fd6" title="#ff6fd6"></span><span class="chip" style="background:#ffe1f4" title="#ffe1f4"></span></span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="stage"><svg class="m2" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blown — Luxury Tissue · sello Noir" font-family="Georgia,serif">
+  <defs>
+    <radialGradient id="lid1" cx="42%" cy="30%" r="80%"><stop offset="0%" stop-color="#43434b"/><stop offset="55%" stop-color="#17171b"/><stop offset="100%" stop-color="#000000"/></radialGradient>
+    <linearGradient id="side1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1d1d22"/><stop offset="100%" stop-color="#050506"/></linearGradient>
+    <linearGradient id="met1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c9c9d2"/><stop offset="12%" stop-color="#ffffff"/><stop offset="30%" stop-color="#6c6c76"/><stop offset="48%" stop-color="#ffffff"/><stop offset="66%" stop-color="#6c6c76"/><stop offset="85%" stop-color="#ffffff"/><stop offset="100%" stop-color="#c9c9d2"/></linearGradient>
+    <radialGradient id="well1" cx="50%" cy="55%" r="65%"><stop offset="0%" stop-color="#0c0c0e"/><stop offset="70%" stop-color="#1b1b20"/><stop offset="100%" stop-color="#2f2f37"/></radialGradient>
+    <radialGradient id="dome1" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wipe1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+    <radialGradient id="sh1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <filter id="glow1" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grille1" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+      <rect width="7" height="7" fill="#101014"/><rect width="7" height="7" fill="none" stroke="#8a8a95" stroke-width="0.9"/>
+    </pattern>
+    <clipPath id="bclip1"><text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+    <path id="arcA1" d="M 270,275 Q 350,289 430,275" fill="none"/>
+    <path id="arcB1" d="M 288,290 Q 350,300 412,290" fill="none"/>
+  </defs>
+  <rect x="0" y="0" width="700" height="470" fill="#060607"/>
+  <ellipse cx="352" cy="430" rx="250" ry="48" fill="url(#sh1)"/>
+  <path d="M140,316 A210,82 0 0 0 560,316 L560,360 A210,82 0 0 1 140,360 Z" fill="url(#side1)"/>
+  <ellipse cx="350" cy="316" rx="210" ry="82" fill="url(#lid1)"/>
+  <ellipse cx="350" cy="316" rx="188" ry="66" fill="none" stroke="#e9e9ef" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <path d="M150,286 A206,80 0 0 0 554,286 L554,316 A206,80 0 0 1 150,316 Z" fill="url(#met1)"/>
+  <ellipse cx="352" cy="286" rx="206" ry="80" fill="url(#met1)"/>
+  <path d="M205,300 q70,-26 150,0 q-70,20 -150,0 Z" fill="#000" opacity="0.30"/>
+  <path class="w2" d="M196,302 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe1)" stroke="#d9d2c8" stroke-width="0.8"/>
+  <path class="w1" d="M210,300 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe1)" stroke="#d9d2c8" stroke-width="0.9"/>
+  <path d="M138,236 A212,84 0 0 0 562,236 L562,280 A212,84 0 0 1 138,280 Z" fill="url(#side1)"/>
+  <ellipse cx="350" cy="236" rx="212" ry="84" fill="url(#lid1)"/>
+  <ellipse cx="350" cy="236" rx="190" ry="68" fill="none" stroke="#e9e9ef" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <ellipse cx="350" cy="231" rx="84" ry="37" fill="#101014"/>
+  <ellipse cx="350" cy="229" rx="80" ry="34" fill="url(#well1)"/>
+  <ellipse class="glow" cx="350" cy="226" rx="52" ry="24" fill="#cfcfd8" filter="url(#glow1)" opacity="0.4"/>
+  <ellipse class="press-ring" cx="350" cy="228" rx="70" ry="30" fill="none" stroke="#e9e9ef" stroke-width="3"/>
+  <g class="btn">
+    <text x="350" y="250" text-anchor="middle" font-size="50" font-weight="700" fill="#101014">B</text>
+    <text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" fill="url(#grille1)" stroke="#e9e9ef" stroke-width="1.7" paint-order="stroke">B</text>
+    <rect x="300" y="190" width="100" height="80" fill="url(#dome1)" clip-path="url(#bclip1)"/>
+  </g>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#101014" opacity="0.5"><textPath href="#arcA1" startOffset="50%" text-anchor="middle">blown</textPath></text>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#f1f1f5"><textPath href="#arcA1" startOffset="50%" text-anchor="middle" dy="-1.3">blown</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#101014" opacity="0.45" font-family="Arial,sans-serif"><textPath href="#arcB1" startOffset="50%" text-anchor="middle">LUXURY TISSUE</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#8a8a95" font-family="Arial,sans-serif"><textPath href="#arcB1" startOffset="50%" text-anchor="middle" dy="-1">LUXURY TISSUE</textPath></text>
+  <ellipse cx="344" cy="218" rx="60" ry="20" fill="url(#dome1)"/>
+</svg></div>
+      <figcaption>
+        <span class="nm">Noir</span>
+        <span class="chips"><span class="chip" style="background:#17171b" title="#17171b"></span><span class="chip" style="background:#c9c9d2" title="#c9c9d2"></span><span class="chip" style="background:#cfcfd8" title="#cfcfd8"></span><span class="chip" style="background:#e9e9ef" title="#e9e9ef"></span></span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="stage"><svg class="m2" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blown — Luxury Tissue · sello Cobalt steel" font-family="Georgia,serif">
+  <defs>
+    <radialGradient id="lid2" cx="42%" cy="30%" r="80%"><stop offset="0%" stop-color="#7aa3da"/><stop offset="55%" stop-color="#1f4f93"/><stop offset="100%" stop-color="#0c2452"/></radialGradient>
+    <linearGradient id="side2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1b4a8a"/><stop offset="100%" stop-color="#0a1c3a"/></linearGradient>
+    <linearGradient id="met2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#bcc6d6"/><stop offset="12%" stop-color="#ffffff"/><stop offset="30%" stop-color="#5e6f86"/><stop offset="48%" stop-color="#ffffff"/><stop offset="66%" stop-color="#5e6f86"/><stop offset="85%" stop-color="#ffffff"/><stop offset="100%" stop-color="#bcc6d6"/></linearGradient>
+    <radialGradient id="well2" cx="50%" cy="55%" r="65%"><stop offset="0%" stop-color="#0a1c3a"/><stop offset="70%" stop-color="#143360"/><stop offset="100%" stop-color="#1f4c8c"/></radialGradient>
+    <radialGradient id="dome2" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wipe2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+    <radialGradient id="sh2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <filter id="glow2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grille2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+      <rect width="7" height="7" fill="#081428"/><rect width="7" height="7" fill="none" stroke="#4f7fcf" stroke-width="0.9"/>
+    </pattern>
+    <clipPath id="bclip2"><text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+    <path id="arcA2" d="M 270,275 Q 350,289 430,275" fill="none"/>
+    <path id="arcB2" d="M 288,290 Q 350,300 412,290" fill="none"/>
+  </defs>
+  <rect x="0" y="0" width="700" height="470" fill="#070a12"/>
+  <ellipse cx="352" cy="430" rx="250" ry="48" fill="url(#sh2)"/>
+  <path d="M140,316 A210,82 0 0 0 560,316 L560,360 A210,82 0 0 1 140,360 Z" fill="url(#side2)"/>
+  <ellipse cx="350" cy="316" rx="210" ry="82" fill="url(#lid2)"/>
+  <ellipse cx="350" cy="316" rx="188" ry="66" fill="none" stroke="#cfe2ff" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <path d="M150,286 A206,80 0 0 0 554,286 L554,316 A206,80 0 0 1 150,316 Z" fill="url(#met2)"/>
+  <ellipse cx="352" cy="286" rx="206" ry="80" fill="url(#met2)"/>
+  <path d="M205,300 q70,-26 150,0 q-70,20 -150,0 Z" fill="#000" opacity="0.30"/>
+  <path class="w2" d="M196,302 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe2)" stroke="#d9d2c8" stroke-width="0.8"/>
+  <path class="w1" d="M210,300 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe2)" stroke="#d9d2c8" stroke-width="0.9"/>
+  <path d="M138,236 A212,84 0 0 0 562,236 L562,280 A212,84 0 0 1 138,280 Z" fill="url(#side2)"/>
+  <ellipse cx="350" cy="236" rx="212" ry="84" fill="url(#lid2)"/>
+  <ellipse cx="350" cy="236" rx="190" ry="68" fill="none" stroke="#cfe2ff" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <ellipse cx="350" cy="231" rx="84" ry="37" fill="#0a2048"/>
+  <ellipse cx="350" cy="229" rx="80" ry="34" fill="url(#well2)"/>
+  <ellipse class="glow" cx="350" cy="226" rx="52" ry="24" fill="#74acff" filter="url(#glow2)" opacity="0.4"/>
+  <ellipse class="press-ring" cx="350" cy="228" rx="70" ry="30" fill="none" stroke="#cfe2ff" stroke-width="3"/>
+  <g class="btn">
+    <text x="350" y="250" text-anchor="middle" font-size="50" font-weight="700" fill="#081428">B</text>
+    <text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" fill="url(#grille2)" stroke="#cfe2ff" stroke-width="1.7" paint-order="stroke">B</text>
+    <rect x="300" y="190" width="100" height="80" fill="url(#dome2)" clip-path="url(#bclip2)"/>
+  </g>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#081428" opacity="0.5"><textPath href="#arcA2" startOffset="50%" text-anchor="middle">blown</textPath></text>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#dcebff"><textPath href="#arcA2" startOffset="50%" text-anchor="middle" dy="-1.3">blown</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#081428" opacity="0.45" font-family="Arial,sans-serif"><textPath href="#arcB2" startOffset="50%" text-anchor="middle">LUXURY TISSUE</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#4f7fcf" font-family="Arial,sans-serif"><textPath href="#arcB2" startOffset="50%" text-anchor="middle" dy="-1">LUXURY TISSUE</textPath></text>
+  <ellipse cx="344" cy="218" rx="60" ry="20" fill="url(#dome2)"/>
+</svg></div>
+      <figcaption>
+        <span class="nm">Cobalt steel</span>
+        <span class="chips"><span class="chip" style="background:#1f4f93" title="#1f4f93"></span><span class="chip" style="background:#bcc6d6" title="#bcc6d6"></span><span class="chip" style="background:#74acff" title="#74acff"></span><span class="chip" style="background:#cfe2ff" title="#cfe2ff"></span></span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="stage"><svg class="m2" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blown — Luxury Tissue · sello Oxblood" font-family="Georgia,serif">
+  <defs>
+    <radialGradient id="lid3" cx="42%" cy="30%" r="80%"><stop offset="0%" stop-color="#9c2c3a"/><stop offset="55%" stop-color="#5e1320"/><stop offset="100%" stop-color="#2a0810"/></radialGradient>
+    <linearGradient id="side3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5e1320"/><stop offset="100%" stop-color="#220609"/></linearGradient>
+    <linearGradient id="met3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#caa66a"/><stop offset="12%" stop-color="#fff3da"/><stop offset="30%" stop-color="#8a6c3a"/><stop offset="48%" stop-color="#fff3da"/><stop offset="66%" stop-color="#8a6c3a"/><stop offset="85%" stop-color="#fff3da"/><stop offset="100%" stop-color="#caa66a"/></linearGradient>
+    <radialGradient id="well3" cx="50%" cy="55%" r="65%"><stop offset="0%" stop-color="#1c0508"/><stop offset="70%" stop-color="#380b12"/><stop offset="100%" stop-color="#58141d"/></radialGradient>
+    <radialGradient id="dome3" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wipe3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+    <radialGradient id="sh3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <filter id="glow3" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grille3" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+      <rect width="7" height="7" fill="#1e0508"/><rect width="7" height="7" fill="none" stroke="#b05560" stroke-width="0.9"/>
+    </pattern>
+    <clipPath id="bclip3"><text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+    <path id="arcA3" d="M 270,275 Q 350,289 430,275" fill="none"/>
+    <path id="arcB3" d="M 288,290 Q 350,300 412,290" fill="none"/>
+  </defs>
+  <rect x="0" y="0" width="700" height="470" fill="#0e0506"/>
+  <ellipse cx="352" cy="430" rx="250" ry="48" fill="url(#sh3)"/>
+  <path d="M140,316 A210,82 0 0 0 560,316 L560,360 A210,82 0 0 1 140,360 Z" fill="url(#side3)"/>
+  <ellipse cx="350" cy="316" rx="210" ry="82" fill="url(#lid3)"/>
+  <ellipse cx="350" cy="316" rx="188" ry="66" fill="none" stroke="#f0d2d6" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <path d="M150,286 A206,80 0 0 0 554,286 L554,316 A206,80 0 0 1 150,316 Z" fill="url(#met3)"/>
+  <ellipse cx="352" cy="286" rx="206" ry="80" fill="url(#met3)"/>
+  <path d="M205,300 q70,-26 150,0 q-70,20 -150,0 Z" fill="#000" opacity="0.30"/>
+  <path class="w2" d="M196,302 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe3)" stroke="#d9d2c8" stroke-width="0.8"/>
+  <path class="w1" d="M210,300 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe3)" stroke="#d9d2c8" stroke-width="0.9"/>
+  <path d="M138,236 A212,84 0 0 0 562,236 L562,280 A212,84 0 0 1 138,280 Z" fill="url(#side3)"/>
+  <ellipse cx="350" cy="236" rx="212" ry="84" fill="url(#lid3)"/>
+  <ellipse cx="350" cy="236" rx="190" ry="68" fill="none" stroke="#f0d2d6" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <ellipse cx="350" cy="231" rx="84" ry="37" fill="#240609"/>
+  <ellipse cx="350" cy="229" rx="80" ry="34" fill="url(#well3)"/>
+  <ellipse class="glow" cx="350" cy="226" rx="52" ry="24" fill="#c8404f" filter="url(#glow3)" opacity="0.4"/>
+  <ellipse class="press-ring" cx="350" cy="228" rx="70" ry="30" fill="none" stroke="#f0d2d6" stroke-width="3"/>
+  <g class="btn">
+    <text x="350" y="250" text-anchor="middle" font-size="50" font-weight="700" fill="#1e0508">B</text>
+    <text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" fill="url(#grille3)" stroke="#f0d2d6" stroke-width="1.7" paint-order="stroke">B</text>
+    <rect x="300" y="190" width="100" height="80" fill="url(#dome3)" clip-path="url(#bclip3)"/>
+  </g>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#1e0508" opacity="0.5"><textPath href="#arcA3" startOffset="50%" text-anchor="middle">blown</textPath></text>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#f3d9dc"><textPath href="#arcA3" startOffset="50%" text-anchor="middle" dy="-1.3">blown</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#1e0508" opacity="0.45" font-family="Arial,sans-serif"><textPath href="#arcB3" startOffset="50%" text-anchor="middle">LUXURY TISSUE</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#b05560" font-family="Arial,sans-serif"><textPath href="#arcB3" startOffset="50%" text-anchor="middle" dy="-1">LUXURY TISSUE</textPath></text>
+  <ellipse cx="344" cy="218" rx="60" ry="20" fill="url(#dome3)"/>
+</svg></div>
+      <figcaption>
+        <span class="nm">Oxblood</span>
+        <span class="chips"><span class="chip" style="background:#5e1320" title="#5e1320"></span><span class="chip" style="background:#caa66a" title="#caa66a"></span><span class="chip" style="background:#c8404f" title="#c8404f"></span><span class="chip" style="background:#f0d2d6" title="#f0d2d6"></span></span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="stage"><svg class="m2" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blown — Luxury Tissue · sello Forest tobacco" font-family="Georgia,serif">
+  <defs>
+    <radialGradient id="lid4" cx="42%" cy="30%" r="80%"><stop offset="0%" stop-color="#377c50"/><stop offset="55%" stop-color="#163a26"/><stop offset="100%" stop-color="#0a1f12"/></radialGradient>
+    <linearGradient id="side4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#163a26"/><stop offset="100%" stop-color="#08160d"/></linearGradient>
+    <linearGradient id="met4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c2a85e"/><stop offset="12%" stop-color="#fff0c4"/><stop offset="30%" stop-color="#7a6630"/><stop offset="48%" stop-color="#fff0c4"/><stop offset="66%" stop-color="#7a6630"/><stop offset="85%" stop-color="#fff0c4"/><stop offset="100%" stop-color="#c2a85e"/></linearGradient>
+    <radialGradient id="well4" cx="50%" cy="55%" r="65%"><stop offset="0%" stop-color="#0a1d12"/><stop offset="70%" stop-color="#163a24"/><stop offset="100%" stop-color="#235e3a"/></radialGradient>
+    <radialGradient id="dome4" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wipe4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+    <radialGradient id="sh4" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <filter id="glow4" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grille4" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+      <rect width="7" height="7" fill="#0a1d12"/><rect width="7" height="7" fill="none" stroke="#9a7c4a" stroke-width="0.9"/>
+    </pattern>
+    <clipPath id="bclip4"><text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+    <path id="arcA4" d="M 270,275 Q 350,289 430,275" fill="none"/>
+    <path id="arcB4" d="M 288,290 Q 350,300 412,290" fill="none"/>
+  </defs>
+  <rect x="0" y="0" width="700" height="470" fill="#060a07"/>
+  <ellipse cx="352" cy="430" rx="250" ry="48" fill="url(#sh4)"/>
+  <path d="M140,316 A210,82 0 0 0 560,316 L560,360 A210,82 0 0 1 140,360 Z" fill="url(#side4)"/>
+  <ellipse cx="350" cy="316" rx="210" ry="82" fill="url(#lid4)"/>
+  <ellipse cx="350" cy="316" rx="188" ry="66" fill="none" stroke="#e2d2b0" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <path d="M150,286 A206,80 0 0 0 554,286 L554,316 A206,80 0 0 1 150,316 Z" fill="url(#met4)"/>
+  <ellipse cx="352" cy="286" rx="206" ry="80" fill="url(#met4)"/>
+  <path d="M205,300 q70,-26 150,0 q-70,20 -150,0 Z" fill="#000" opacity="0.30"/>
+  <path class="w2" d="M196,302 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe4)" stroke="#d9d2c8" stroke-width="0.8"/>
+  <path class="w1" d="M210,300 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe4)" stroke="#d9d2c8" stroke-width="0.9"/>
+  <path d="M138,236 A212,84 0 0 0 562,236 L562,280 A212,84 0 0 1 138,280 Z" fill="url(#side4)"/>
+  <ellipse cx="350" cy="236" rx="212" ry="84" fill="url(#lid4)"/>
+  <ellipse cx="350" cy="236" rx="190" ry="68" fill="none" stroke="#e2d2b0" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <ellipse cx="350" cy="231" rx="84" ry="37" fill="#0c2014"/>
+  <ellipse cx="350" cy="229" rx="80" ry="34" fill="url(#well4)"/>
+  <ellipse class="glow" cx="350" cy="226" rx="52" ry="24" fill="#57a874" filter="url(#glow4)" opacity="0.4"/>
+  <ellipse class="press-ring" cx="350" cy="228" rx="70" ry="30" fill="none" stroke="#e2d2b0" stroke-width="3"/>
+  <g class="btn">
+    <text x="350" y="250" text-anchor="middle" font-size="50" font-weight="700" fill="#0a1d12">B</text>
+    <text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" fill="url(#grille4)" stroke="#e2d2b0" stroke-width="1.7" paint-order="stroke">B</text>
+    <rect x="300" y="190" width="100" height="80" fill="url(#dome4)" clip-path="url(#bclip4)"/>
+  </g>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#0a1d12" opacity="0.5"><textPath href="#arcA4" startOffset="50%" text-anchor="middle">blown</textPath></text>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#e6ecd6"><textPath href="#arcA4" startOffset="50%" text-anchor="middle" dy="-1.3">blown</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#0a1d12" opacity="0.45" font-family="Arial,sans-serif"><textPath href="#arcB4" startOffset="50%" text-anchor="middle">LUXURY TISSUE</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#9a7c4a" font-family="Arial,sans-serif"><textPath href="#arcB4" startOffset="50%" text-anchor="middle" dy="-1">LUXURY TISSUE</textPath></text>
+  <ellipse cx="344" cy="218" rx="60" ry="20" fill="url(#dome4)"/>
+</svg></div>
+      <figcaption>
+        <span class="nm">Forest tobacco</span>
+        <span class="chips"><span class="chip" style="background:#163a26" title="#163a26"></span><span class="chip" style="background:#c2a85e" title="#c2a85e"></span><span class="chip" style="background:#57a874" title="#57a874"></span><span class="chip" style="background:#e2d2b0" title="#e2d2b0"></span></span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="stage"><svg class="m2" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blown — Luxury Tissue · sello Carbon mono" font-family="Georgia,serif">
+  <defs>
+    <radialGradient id="lid5" cx="42%" cy="30%" r="80%"><stop offset="0%" stop-color="#54545c"/><stop offset="55%" stop-color="#28282d"/><stop offset="100%" stop-color="#0c0c0e"/></radialGradient>
+    <linearGradient id="side5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#28282d"/><stop offset="100%" stop-color="#101012"/></linearGradient>
+    <linearGradient id="met5" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c4c4cc"/><stop offset="12%" stop-color="#ffffff"/><stop offset="30%" stop-color="#6c6c74"/><stop offset="48%" stop-color="#ffffff"/><stop offset="66%" stop-color="#6c6c74"/><stop offset="85%" stop-color="#ffffff"/><stop offset="100%" stop-color="#c4c4cc"/></linearGradient>
+    <radialGradient id="well5" cx="50%" cy="55%" r="65%"><stop offset="0%" stop-color="#121214"/><stop offset="70%" stop-color="#2a2a30"/><stop offset="100%" stop-color="#3c3c44"/></radialGradient>
+    <radialGradient id="dome5" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wipe5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+    <radialGradient id="sh5" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <filter id="glow5" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grille5" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+      <rect width="7" height="7" fill="#0e0e10"/><rect width="7" height="7" fill="none" stroke="#7a7a82" stroke-width="0.9"/>
+    </pattern>
+    <clipPath id="bclip5"><text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+    <path id="arcA5" d="M 270,275 Q 350,289 430,275" fill="none"/>
+    <path id="arcB5" d="M 288,290 Q 350,300 412,290" fill="none"/>
+  </defs>
+  <rect x="0" y="0" width="700" height="470" fill="#0a0a0b"/>
+  <ellipse cx="352" cy="430" rx="250" ry="48" fill="url(#sh5)"/>
+  <path d="M140,316 A210,82 0 0 0 560,316 L560,360 A210,82 0 0 1 140,360 Z" fill="url(#side5)"/>
+  <ellipse cx="350" cy="316" rx="210" ry="82" fill="url(#lid5)"/>
+  <ellipse cx="350" cy="316" rx="188" ry="66" fill="none" stroke="#f2f2f5" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <path d="M150,286 A206,80 0 0 0 554,286 L554,316 A206,80 0 0 1 150,316 Z" fill="url(#met5)"/>
+  <ellipse cx="352" cy="286" rx="206" ry="80" fill="url(#met5)"/>
+  <path d="M205,300 q70,-26 150,0 q-70,20 -150,0 Z" fill="#000" opacity="0.30"/>
+  <path class="w2" d="M196,302 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe5)" stroke="#d9d2c8" stroke-width="0.8"/>
+  <path class="w1" d="M210,300 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe5)" stroke="#d9d2c8" stroke-width="0.9"/>
+  <path d="M138,236 A212,84 0 0 0 562,236 L562,280 A212,84 0 0 1 138,280 Z" fill="url(#side5)"/>
+  <ellipse cx="350" cy="236" rx="212" ry="84" fill="url(#lid5)"/>
+  <ellipse cx="350" cy="236" rx="190" ry="68" fill="none" stroke="#f2f2f5" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <ellipse cx="350" cy="231" rx="84" ry="37" fill="#121214"/>
+  <ellipse cx="350" cy="229" rx="80" ry="34" fill="url(#well5)"/>
+  <ellipse class="glow" cx="350" cy="226" rx="52" ry="24" fill="#ffffff" filter="url(#glow5)" opacity="0.4"/>
+  <ellipse class="press-ring" cx="350" cy="228" rx="70" ry="30" fill="none" stroke="#f2f2f5" stroke-width="3"/>
+  <g class="btn">
+    <text x="350" y="250" text-anchor="middle" font-size="50" font-weight="700" fill="#0e0e10">B</text>
+    <text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" fill="url(#grille5)" stroke="#f2f2f5" stroke-width="1.7" paint-order="stroke">B</text>
+    <rect x="300" y="190" width="100" height="80" fill="url(#dome5)" clip-path="url(#bclip5)"/>
+  </g>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#0e0e10" opacity="0.5"><textPath href="#arcA5" startOffset="50%" text-anchor="middle">blown</textPath></text>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#fafafa"><textPath href="#arcA5" startOffset="50%" text-anchor="middle" dy="-1.3">blown</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#0e0e10" opacity="0.45" font-family="Arial,sans-serif"><textPath href="#arcB5" startOffset="50%" text-anchor="middle">LUXURY TISSUE</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#7a7a82" font-family="Arial,sans-serif"><textPath href="#arcB5" startOffset="50%" text-anchor="middle" dy="-1">LUXURY TISSUE</textPath></text>
+  <ellipse cx="344" cy="218" rx="60" ry="20" fill="url(#dome5)"/>
+</svg></div>
+      <figcaption>
+        <span class="nm">Carbon mono</span>
+        <span class="chips"><span class="chip" style="background:#28282d" title="#28282d"></span><span class="chip" style="background:#c4c4cc" title="#c4c4cc"></span><span class="chip" style="background:#ffffff" title="#ffffff"></span><span class="chip" style="background:#f2f2f5" title="#f2f2f5"></span></span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="stage"><svg class="m2" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blown — Luxury Tissue · sello Whisky on plum" font-family="Georgia,serif">
+  <defs>
+    <radialGradient id="lid6" cx="42%" cy="30%" r="80%"><stop offset="0%" stop-color="#ecbd72"/><stop offset="55%" stop-color="#c9883a"/><stop offset="100%" stop-color="#8a5520"/></radialGradient>
+    <linearGradient id="side6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9a6328"/><stop offset="100%" stop-color="#4a2e12"/></linearGradient>
+    <linearGradient id="met6" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#d4b072"/><stop offset="12%" stop-color="#fff3da"/><stop offset="30%" stop-color="#8a6c3a"/><stop offset="48%" stop-color="#fff3da"/><stop offset="66%" stop-color="#8a6c3a"/><stop offset="85%" stop-color="#fff3da"/><stop offset="100%" stop-color="#d4b072"/></linearGradient>
+    <radialGradient id="well6" cx="50%" cy="55%" r="65%"><stop offset="0%" stop-color="#240a1f"/><stop offset="70%" stop-color="#3a1230"/><stop offset="100%" stop-color="#5a1c48"/></radialGradient>
+    <radialGradient id="dome6" cx="42%" cy="22%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.75"/><stop offset="55%" stop-color="#fff" stop-opacity="0.05"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wipe6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e7e2dc"/></linearGradient>
+    <radialGradient id="sh6" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.32"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <filter id="glow6" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <pattern id="grille6" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45 0 0)">
+      <rect width="7" height="7" fill="#1e0a1a"/><rect width="7" height="7" fill="none" stroke="#b8863e" stroke-width="0.9"/>
+    </pattern>
+    <clipPath id="bclip6"><text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" font-family="Georgia,serif">B</text></clipPath>
+    <path id="arcA6" d="M 270,275 Q 350,289 430,275" fill="none"/>
+    <path id="arcB6" d="M 288,290 Q 350,300 412,290" fill="none"/>
+  </defs>
+  <rect x="0" y="0" width="700" height="470" fill="#160a16"/>
+  <ellipse cx="352" cy="430" rx="250" ry="48" fill="url(#sh6)"/>
+  <path d="M140,316 A210,82 0 0 0 560,316 L560,360 A210,82 0 0 1 140,360 Z" fill="url(#side6)"/>
+  <ellipse cx="350" cy="316" rx="210" ry="82" fill="url(#lid6)"/>
+  <ellipse cx="350" cy="316" rx="188" ry="66" fill="none" stroke="#f2dcb8" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <path d="M150,286 A206,80 0 0 0 554,286 L554,316 A206,80 0 0 1 150,316 Z" fill="url(#met6)"/>
+  <ellipse cx="352" cy="286" rx="206" ry="80" fill="url(#met6)"/>
+  <path d="M205,300 q70,-26 150,0 q-70,20 -150,0 Z" fill="#000" opacity="0.30"/>
+  <path class="w2" d="M196,302 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe6)" stroke="#d9d2c8" stroke-width="0.8"/>
+  <path class="w1" d="M210,300 q34,-30 78,-16 q10,4 6,16 q-6,16 -30,22 q-34,8 -54,-6 q-8,-8 0,-16 Z" fill="url(#wipe6)" stroke="#d9d2c8" stroke-width="0.9"/>
+  <path d="M138,236 A212,84 0 0 0 562,236 L562,280 A212,84 0 0 1 138,280 Z" fill="url(#side6)"/>
+  <ellipse cx="350" cy="236" rx="212" ry="84" fill="url(#lid6)"/>
+  <ellipse cx="350" cy="236" rx="190" ry="68" fill="none" stroke="#f2dcb8" stroke-width="1.6" stroke-dasharray="2 7" opacity="0.85"/>
+  <ellipse cx="350" cy="231" rx="84" ry="37" fill="#2a0d22"/>
+  <ellipse cx="350" cy="229" rx="80" ry="34" fill="url(#well6)"/>
+  <ellipse class="glow" cx="350" cy="226" rx="52" ry="24" fill="#e9b86a" filter="url(#glow6)" opacity="0.4"/>
+  <ellipse class="press-ring" cx="350" cy="228" rx="70" ry="30" fill="none" stroke="#f2dcb8" stroke-width="3"/>
+  <g class="btn">
+    <text x="350" y="250" text-anchor="middle" font-size="50" font-weight="700" fill="#1e0a1a">B</text>
+    <text x="350" y="247" text-anchor="middle" font-size="50" font-weight="700" fill="url(#grille6)" stroke="#f2dcb8" stroke-width="1.7" paint-order="stroke">B</text>
+    <rect x="300" y="190" width="100" height="80" fill="url(#dome6)" clip-path="url(#bclip6)"/>
+  </g>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#1e0a1a" opacity="0.5"><textPath href="#arcA6" startOffset="50%" text-anchor="middle">blown</textPath></text>
+  <text font-size="20" font-weight="700" letter-spacing="3" fill="#f2dcc2"><textPath href="#arcA6" startOffset="50%" text-anchor="middle" dy="-1.3">blown</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#1e0a1a" opacity="0.45" font-family="Arial,sans-serif"><textPath href="#arcB6" startOffset="50%" text-anchor="middle">LUXURY TISSUE</textPath></text>
+  <text font-size="9" letter-spacing="4" fill="#b8863e" font-family="Arial,sans-serif"><textPath href="#arcB6" startOffset="50%" text-anchor="middle" dy="-1">LUXURY TISSUE</textPath></text>
+  <ellipse cx="344" cy="218" rx="60" ry="20" fill="url(#dome6)"/>
+</svg></div>
+      <figcaption>
+        <span class="nm">Whisky on plum</span>
+        <span class="chips"><span class="chip" style="background:#c9883a" title="#c9883a"></span><span class="chip" style="background:#d4b072" title="#d4b072"></span><span class="chip" style="background:#e9b86a" title="#e9b86a"></span><span class="chip" style="background:#f2dcb8" title="#f2dcb8"></span></span>
+      </figcaption>
+    </figure></div>
+  <footer>Blown · Luxury Tissue · Ibiza 2026 — sello magenta sustituido por paletas de interiorismo · respeta «reduce motion».</footer>
+</body></html>
